@@ -26,7 +26,7 @@ class MainActivity: AppCompatActivity() {
         val url = "https://www.googleapis.com/youtube/v3/playlistItems?&maxResults=100" +
                 "&playlistId=PLx0sYbCqOb8TBPRdmBHs5Iftvv9TPboYG" +
                 "&key=$MY_SECRET_API_KEY" +
-                "&fields=items(snippet(publishedAt,title,description,channelTitle,position))" +
+                "&fields=items(snippet(publishedAt,title,description,channelTitle,position,thumbnails))" +
                 "&part=snippet"
 
         val request = Request.Builder().url(url).build()
@@ -50,9 +50,3 @@ class MainActivity: AppCompatActivity() {
         })
     }
 }
-
-class Playlist(val items: List<Video>)
-
-class Video(val snippet: Snippet)
-
-class Snippet(val publishedAt: String, val title: String, val description: String, val channelTitle: String, val position: Int)
