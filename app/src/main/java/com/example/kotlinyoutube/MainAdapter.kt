@@ -1,5 +1,6 @@
 package com.example.kotlinyoutube
 
+import android.content.Intent
 import android.view.LayoutInflater
 import androidx.recyclerview.widget.RecyclerView
 import android.view.View
@@ -36,4 +37,10 @@ class MainAdapter(val playlist: Playlist): RecyclerView.Adapter<CustomViewHolder
 
 class CustomViewHolder(val view: View): RecyclerView.ViewHolder(view) {
 
+    init {
+        view.setOnClickListener {
+            val intent = Intent(view.context, VideoActivity::class.java)
+            view.context.startActivity(intent)
+        }
+    }
 }
