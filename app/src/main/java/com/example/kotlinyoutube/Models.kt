@@ -10,4 +10,4 @@ class Snippet(val publishedAt: String, val title: String, val description: Strin
 
 class Thumbnails(val standard: Standard)
 
-class Standard(val url: String, val width: Int, val height: Int)
+class Standard(val url: String)

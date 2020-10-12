@@ -9,8 +9,10 @@ import kotlinx.android.synthetic.main.video_row.view.*
 
 class MainAdapter(val playlist: Playlist): RecyclerView.Adapter<CustomViewHolder>() {
 
+    private val numVideos = 10
+
     override fun getItemCount(): Int {
-        return 3
+        return numVideos
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
@@ -22,11 +24,13 @@ class MainAdapter(val playlist: Playlist): RecyclerView.Adapter<CustomViewHolder
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
         val video = playlist.items.get(position)
 
-        holder.view.videoTitleTV.text = video.snippet.title
-        holder.view.channelNameTV.text = video.snippet.channelTitle+" • "+"20K views\n4 days ago"
-
+        // display thumbnail
         val thumbnailImageView = holder.view.videoImageView
         Picasso.with(holder.view.context).load(video.snippet.thumbnails.standard.url).into(thumbnailImageView)
+
+        // display text
+        holder.view.videoTitleTV.text = video.snippet.title
+        holder.view.channelNameTV.text = video.snippet.channelTitle+" • "+"20K views\n4 days ago"
     }
 }
 

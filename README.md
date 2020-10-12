@@ -4,13 +4,13 @@
 
 ### API
 
-- [YouTube Data API](https://developers.google.com/youtube/v3/getting-started)
-- [Top 100 Hit Music Playlist](https://www.youtube.com/playlist?list=PLx0sYbCqOb8TBPRdmBHs5Iftvv9TPboYG)
+- [YouTube Data API](https://developers.google.com/youtube/v3/getting-started) - basic concepts of YouTube and of the API itself
+- [Top 50 This Week & Top 100 Songs 2021](https://www.youtube.com/playlist?list=PLx0sYbCqOb8TBPRdmBHs5Iftvv9TPboYG) - Best New Music Hits Playlist
 
 ### Data 
 
 - [Json](https://www.json.org/json-en.html) - JavaScript Object Notation is an open standard file format
-- [Json Parser Online](http://json.parser.online.fr/)
+- [Json Parser Online](http://json.parser.online.fr/) - featuring tree view and syntax highlighting
      
 ### Technology
 

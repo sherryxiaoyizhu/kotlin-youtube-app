@@ -21,7 +21,7 @@ class MainActivity: AppCompatActivity() {
     }
 
     fun fetchJson() {
-        val MY_SECRET_API_KEY = "AIzaSyArKlbgIq5WSsDxoo2AFc4JD4qRAiJf1Xs"
+        val MY_SECRET_API_KEY = "AIzaSyArKlbgIq5WSsDxoo2AFc4JD4qRAiJf1Xs" // update and put it in .env before publishing the repo
 
         val url = "https://www.googleapis.com/youtube/v3/playlistItems?&maxResults=100" +
                 "&playlistId=PLx0sYbCqOb8TBPRdmBHs5Iftvv9TPboYG" +
@@ -32,6 +32,7 @@ class MainActivity: AppCompatActivity() {
         val request = Request.Builder().url(url).build()
         val client = OkHttpClient()
         client.newCall(request).enqueue(object: Callback {
+
             override fun onResponse(call: Call, response: Response) {
                 val body = response.body?.string()
                 //Log.d("XXX", "Json parsed: $body")
