@@ -32,6 +32,3 @@
 
 - [CS 395T Android Programming by UT Austin](https://www.cs.utexas.edu/users/witchel/371M/schedule.html)
 - [YouTube Tutorial by Lets Build That App Channel](https://www.youtube.com/playlist?list=PL0dzCUj1L5JGfHj1lwxOq67zAJV3e1S9S)
-
-
-https://www.googleapis.com/youtube/v3/playlistItems?&maxResults=100&playlistId=PLx0sYbCqOb8TBPRdmBHs5Iftvv9TPboYG&key=AIzaSyArKlbgIq5WSsDxoo2AFc4JD4qRAiJf1Xs
