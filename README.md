@@ -2,6 +2,8 @@
 
 ### Features
 
+- In progress
+
 ### API
 
 - [YouTube Data API](https://developers.google.com/youtube/v3/getting-started) - basic concepts of YouTube and of the API itself
@@ -27,6 +29,7 @@
 - [OkHttp](https://square.github.io/okhttp/) - an HTTP client for Android and Java applications
 - [Gson](https://guides.codepath.com/android/leveraging-the-gson-library) - provides a powerful framework for converting between JSON strings and Java objects
 - [Picasso](https://square.github.io/picasso/) - allows for hassle-free image loading in application
+- [CircleImageView](https://github.com/hdodenhof/CircleImageView) - a fast circular ImageView perfect for profile images
 
 ### Source:
 

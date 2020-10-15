@@ -24,10 +24,16 @@ class MainAdapter(val playlist: Playlist): RecyclerView.Adapter<CustomViewHolder
 
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
         val video = playlist.items.get(position)
+        val channelProfileImagePath =
+            "https://yt3.ggpht.com/a/AATXAJyljAWnvqx5Lmdp3UP8Js0rSqQLmf3bt76mAnL-=s900-c-k-c0xffffffff-no-rj-mo"
 
         // display thumbnail
         val thumbnailImageView = holder.view.videoImageView
         Picasso.with(holder.view.context).load(video.snippet.thumbnails.standard.url).into(thumbnailImageView)
+
+        // display channel profile image
+        val channelProfileImageView = holder.view.channelProfileImage
+        Picasso.with(holder.view.context).load(channelProfileImagePath).into(channelProfileImageView)
 
         // display text
         holder.view.videoTitleTV.text = video.snippet.title

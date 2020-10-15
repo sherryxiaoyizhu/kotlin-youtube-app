@@ -20,7 +20,7 @@ class MainActivity: AppCompatActivity() {
         fetchJson()
     }
 
-    fun fetchJson() {
+    private fun fetchJson() {
         val MY_SECRET_API_KEY = "AIzaSyArKlbgIq5WSsDxoo2AFc4JD4qRAiJf1Xs" // update and put it in .env before publishing the repo
 
         val url = "https://www.googleapis.com/youtube/v3/playlistItems?&maxResults=100" +

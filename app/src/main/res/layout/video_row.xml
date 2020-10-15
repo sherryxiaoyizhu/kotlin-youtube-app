@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="8dp"
@@ -14,6 +15,8 @@
         android:scaleType="fitCenter"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -21,32 +24,45 @@
 
     <TextView
         android:id="@+id/videoTitleTV"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Video Title"
         android:textStyle="bold"
-        android:textSize="15sp"
+        android:textSize="18sp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/channelProfileImage"
         app:layout_constraintTop_toBottomOf="@+id/videoImageView" />
 
     <TextView
         android:id="@+id/channelNameTV"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Channel Name"
         android:textSize="15sp"
         android:paddingBottom="18dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/videoTitleTV"
+        app:layout_constraintStart_toStartOf="@+id/videoTitleTV"
         app:layout_constraintTop_toBottomOf="@+id/videoTitleTV" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/channelProfileImage"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/videoImageView"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <View
         android:id="@+id/dividerBar"
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
         android:background="#ff000000"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/channelNameTV" />
