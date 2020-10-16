@@ -23,7 +23,7 @@
         <activity android:name=".VideoActivity"
             android:label="Video Detail"
             android:launchMode="singleTop">
-            <meta-data android:name="android:support.PARENT_ACTIVITY"
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
     </application>

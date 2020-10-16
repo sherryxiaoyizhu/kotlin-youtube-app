@@ -1,44 +1,62 @@
 package com.example.kotlinyoutube
 
-import android.graphics.Color
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.activity_main.*
+import com.google.gson.GsonBuilder
+import kotlinx.android.synthetic.main.video_detail.*
+import okhttp3.*
+import java.io.IOException
 
 class VideoActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.video_detail)
 
-        setContentView(R.layout.activity_main)
+        // set up recycler view
+        recyclerView_video_detail.layoutManager = LinearLayoutManager(this)
 
-        recyclerView_main.layoutManager = LinearLayoutManager(this)
-        recyclerView_main.adapter = VideoAdapter()
+        // display ActionBar back button
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        // update ActionBar title
+        val navBarTitle = intent.getStringExtra(CustomViewHolder.VIDEO_TITLE_KEY)
+        supportActionBar?.title = navBarTitle
+
+        fetchJson()
     }
 
-    private class VideoAdapter: RecyclerView.Adapter<VideoDetailViewHolder>() {
+    private fun fetchJson() {
+        // get video url
+        val MY_SECRET_API_KEY = "AIzaSyArKlbgIq5WSsDxoo2AFc4JD4qRAiJf1Xs" // update and put it in .env before publishing the repo
+        val videoId = intent.getStringExtra(CustomViewHolder.VIDEO_ID_KEY).toString().substringBefore('/')
+        val videoUrl = "https://www.googleapis.com/youtube/v3/videos?"+
+                "id=$videoId"+
+                "&key=$MY_SECRET_API_KEY"+
+                "&part=snippet,contentDetails,statistics,status"
 
-        override fun getItemCount(): Int {
-            return 1
-        }
+        val request = Request.Builder().url(videoUrl).build()
+        val client = OkHttpClient()
 
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VideoDetailViewHolder {
-            val layoutInflater = LayoutInflater.from(parent.context)
-            val customView = layoutInflater.inflate(R.layout.video_detail_row, parent, false)
-            return VideoDetailViewHolder(customView)
-        }
+        client.newCall(request).enqueue(object: Callback {
 
-        override fun onBindViewHolder(holder: VideoDetailViewHolder, position: Int) {
+            override fun onResponse(call: Call, response: Response) {
+                val body = response.body?.string()
+                //Log.d("XXX", "Json parsed: $body")
 
-        }
-    }
+                val gson = GsonBuilder().create()
+                val playlistDetail = gson.fromJson(body, PlaylistDetail::class.java)
 
-    private class VideoDetailViewHolder(val view: View): RecyclerView.ViewHolder(view) {
+                runOnUiThread {
+                    recyclerView_video_detail.adapter = VideoAdapter(playlistDetail)
+                }
+            }
 
+            override fun onFailure(call: Call, e: IOException) {
+                Log.d("XXX", "Failed to execute request")
+            }
+        })
     }
 }
