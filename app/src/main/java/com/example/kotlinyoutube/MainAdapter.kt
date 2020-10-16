@@ -1,13 +1,12 @@
 package com.example.kotlinyoutube
 
 import android.content.Intent
-import android.text.TextUtils.substring
 import android.view.LayoutInflater
 import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.video_row.view.*
+import kotlinx.android.synthetic.main.row_main.view.*
 
 class MainAdapter(val playlist: Playlist): RecyclerView.Adapter<CustomViewHolder>() {
 
@@ -19,7 +18,7 @@ class MainAdapter(val playlist: Playlist): RecyclerView.Adapter<CustomViewHolder
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val cellForRow = layoutInflater.inflate(R.layout.video_row, parent, false)
+        val cellForRow = layoutInflater.inflate(R.layout.row_main, parent, false)
         return CustomViewHolder(cellForRow)
     }
 
@@ -40,6 +39,7 @@ class MainAdapter(val playlist: Playlist): RecyclerView.Adapter<CustomViewHolder
         holder.view.videoTitleTV.text = video.snippet.title
         holder.view.channelNameTV.text = video.snippet.channelTitle+" • "+"20K views\n4 days ago"
 
+        // to pass video details through intent
         holder.video = video
     }
 }
@@ -54,7 +54,7 @@ class CustomViewHolder(val view: View, var video: Video? = null): RecyclerView.V
     init {
         view.setOnClickListener {
             val startIdx = "https://i.ytimg.com/vi/".length
-
+            // pass data through intent
             val intent = Intent(view.context, VideoActivity::class.java)
             intent.putExtra(VIDEO_TITLE_KEY, video?.snippet?.title)
             intent.putExtra(VIDEO_ID_KEY, video?.snippet?.thumbnails?.standard?.url?.substring(startIdx))

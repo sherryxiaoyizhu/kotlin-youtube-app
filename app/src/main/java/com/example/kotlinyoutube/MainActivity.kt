@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.GsonBuilder
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.content_main.*
 import okhttp3.*
 import java.io.IOException
 
@@ -14,13 +15,12 @@ class MainActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // set up tool bar
+        setSupportActionBar(mainToolbar)
+
         // set up recycler view
         recyclerView_main.layoutManager = LinearLayoutManager(this)
 
-        fetchJson()
-    }
-
-    private fun fetchJson() {
         // get playlist url
         val MY_SECRET_API_KEY = "AIzaSyArKlbgIq5WSsDxoo2AFc4JD4qRAiJf1Xs" // update and put it in .env before publishing the repo
         val url = "https://www.googleapis.com/youtube/v3/playlistItems?&maxResults=100" +
@@ -29,18 +29,21 @@ class MainActivity: AppCompatActivity() {
                 "&fields=items(snippet(publishedAt,title,description,channelTitle,position,thumbnails))" +
                 "&part=snippet"
 
+        // fetch JSON for video list
+        fetchJson(url)
+    }
+
+    private fun fetchJson(url: String) {
         val request = Request.Builder().url(url).build()
         val client = OkHttpClient()
 
         client.newCall(request).enqueue(object: Callback {
-
             override fun onResponse(call: Call, response: Response) {
                 val body = response.body?.string()
                 //Log.d("XXX", "Json parsed: $body")
 
                 val gson = GsonBuilder().create()
                 val playlist = gson.fromJson(body, Playlist::class.java)
-
                 runOnUiThread {
                     recyclerView_main.adapter = MainAdapter(playlist)
                 }

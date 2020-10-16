@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.video_detail_row.view.*
+import kotlinx.android.synthetic.main.row_video.view.*
 
 class VideoAdapter(val playlistDetail: PlaylistDetail): RecyclerView.Adapter<VideoDetailViewHolder>() {
 
@@ -15,7 +15,7 @@ class VideoAdapter(val playlistDetail: PlaylistDetail): RecyclerView.Adapter<Vid
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VideoDetailViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val customView = layoutInflater.inflate(R.layout.video_detail_row, parent, false)
+        val customView = layoutInflater.inflate(R.layout.row_video, parent, false)
         return VideoDetailViewHolder(customView)
     }
 
