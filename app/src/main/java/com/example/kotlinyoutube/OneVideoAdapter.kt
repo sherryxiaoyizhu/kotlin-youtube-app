@@ -5,9 +5,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.row_video.view.*
+import kotlinx.android.synthetic.main.row_one_video.view.*
 
-class VideoAdapter(val playlistDetail: PlaylistDetail): RecyclerView.Adapter<VideoDetailViewHolder>() {
+class VideoAdapter(val onePlaylist: OnePlaylist): RecyclerView.Adapter<VideoDetailViewHolder>() {
 
     override fun getItemCount(): Int {
         return 1
@@ -15,16 +15,16 @@ class VideoAdapter(val playlistDetail: PlaylistDetail): RecyclerView.Adapter<Vid
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VideoDetailViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val customView = layoutInflater.inflate(R.layout.row_video, parent, false)
+        val customView = layoutInflater.inflate(R.layout.row_one_video, parent, false)
         return VideoDetailViewHolder(customView)
     }
 
     override fun onBindViewHolder(holder: VideoDetailViewHolder, position: Int) {
-        val videoDetail = playlistDetail.items[0]
+        val oneVideo = onePlaylist.items[0]
 
         // display video detail thumbnail
         val thumbnailImageView = holder.view.videoDetailImageView
-        Picasso.with(holder.view.context).load(videoDetail.snippet.thumbnails.standard.url).into(thumbnailImageView)
+        Picasso.with(holder.view.context).load(oneVideo.snippet.thumbnails.standard.url).into(thumbnailImageView)
     }
 }
 

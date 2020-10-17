@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".VideoActivity"
+        <activity android:name=".OneVideoActivity"
             android:label="Video Detail"
             android:launchMode="singleTop">
             <meta-data android:name="android.support.PARENT_ACTIVITY"

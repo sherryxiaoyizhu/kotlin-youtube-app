@@ -5,19 +5,19 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.GsonBuilder
-import kotlinx.android.synthetic.main.activity_video.*
-import kotlinx.android.synthetic.main.content_video.*
+import kotlinx.android.synthetic.main.activity_one_video.*
+import kotlinx.android.synthetic.main.content_one_video.*
 import okhttp3.*
 import java.io.IOException
 
-class VideoActivity : AppCompatActivity() {
+class OneVideoActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_video)
+        setContentView(R.layout.activity_one_video)
 
         // set up tool bar
-        setSupportActionBar(videoToolbar)
+        setSupportActionBar(toolbar)
 
         // set up recycler view
         recyclerView_video_detail.layoutManager = LinearLayoutManager(this)
@@ -51,7 +51,7 @@ class VideoActivity : AppCompatActivity() {
                 //Log.d("XXX", "Json parsed: $body")
 
                 val gson = GsonBuilder().create()
-                val playlistDetail = gson.fromJson(body, PlaylistDetail::class.java)
+                val playlistDetail = gson.fromJson(body, OnePlaylist::class.java)
                 runOnUiThread {
                     recyclerView_video_detail.adapter = VideoAdapter(playlistDetail)
                 }

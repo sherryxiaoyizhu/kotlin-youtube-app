@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.row_main.view.*
 
 class MainAdapter(val playlist: Playlist): RecyclerView.Adapter<CustomViewHolder>() {
 
-    private val numVideos = 10
+    private val numVideos = 20
 
     override fun getItemCount(): Int {
         return numVideos
@@ -55,7 +55,7 @@ class CustomViewHolder(val view: View, var video: Video? = null): RecyclerView.V
         view.setOnClickListener {
             val startIdx = "https://i.ytimg.com/vi/".length
             // pass data through intent
-            val intent = Intent(view.context, VideoActivity::class.java)
+            val intent = Intent(view.context, OneVideoActivity::class.java)
             intent.putExtra(VIDEO_TITLE_KEY, video?.snippet?.title)
             intent.putExtra(VIDEO_ID_KEY, video?.snippet?.thumbnails?.standard?.url?.substring(startIdx))
             view.context.startActivity(intent)

@@ -1,4 +1,6 @@
-# KotlinYouTube App
+# KotlinYouTube
+
+KotlinYouTube is an Android mobile application which renders hit music videos by parsing JSON through YouTube Data API.
 
 ### Features
 
@@ -11,7 +13,7 @@
 
 ### Data 
 
-- [Json](https://www.json.org/json-en.html) - JavaScript Object Notation is an open standard file format
+- [JSON](https://www.json.org/json-en.html) - JavaScript Object Notation is an open standard file format
 - [Json Parser Online](http://json.parser.online.fr/) - featuring tree view and syntax highlighting
      
 ### Technology

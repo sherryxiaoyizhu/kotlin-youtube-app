@@ -9,11 +9,11 @@ class Snippet(val publishedAt: String, val title: String, val description: Strin
               val channelTitle: String, val position: Int, val thumbnails: Thumbnails)
 
 // parse Json: VideoActivity
-class PlaylistDetail(val items: List<VideoDetail>)
+class OnePlaylist(val items: List<OneVideo>)
 
-class VideoDetail(val snippet: SnippetDetail)
+class OneVideo(val snippet: OneSnippet)
 
-class SnippetDetail(val publishedAt: String, val title: String, val description: String,
+class OneSnippet(val publishedAt: String, val title: String, val description: String,
               val channelTitle: String, val position: Int, val thumbnails: Thumbnails, val statistics: Statistics)
 
 class Statistics(val viewCount: String, val likeCount: String, val dislikeCount: String, val commentCount: String)
