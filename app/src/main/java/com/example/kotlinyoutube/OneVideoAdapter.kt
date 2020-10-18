@@ -1,5 +1,6 @@
 package com.example.kotlinyoutube
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +10,7 @@ import com.example.kotlinyoutube.OneVideoActivity.Companion.videoURL
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.row_one_video.view.*
 
-class VideoAdapter(val onePlaylist: OnePlaylist): RecyclerView.Adapter<OneVideoViewHolder>() {
+class OneVideoAdapter(private val onePlaylist: OnePlaylist): RecyclerView.Adapter<OneVideoViewHolder>() {
 
     override fun getItemCount(): Int {
         return 1
@@ -21,12 +22,20 @@ class VideoAdapter(val onePlaylist: OnePlaylist): RecyclerView.Adapter<OneVideoV
         return OneVideoViewHolder(customView)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: OneVideoViewHolder, position: Int) {
         val oneVideo = onePlaylist.items[0]
 
         // display video detail thumbnail
         val thumbnailImageView = holder.view.videoDetailImageView
         Picasso.with(holder.view.context).load(oneVideo.snippet.thumbnails.standard.url).into(thumbnailImageView)
+
+        // display video details: views, published time, likes, dislikes
+        //val viewCount = oneVideo.snippet.statistics.viewCount
+        val publishedAt = oneVideo.snippet.publishedAt
+        holder.view.viewCount_publishedAt_TV.text = publishedAt
+        //holder.view.likeCountTV.text = oneVideo.snippet.statistics.likeCount
+        //holder.view.dislikeCountTV.text = oneVideo.snippet.statistics.dislikeCount
     }
 }
 

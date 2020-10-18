@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.row_main.view.*
 
-class MainAdapter(val playlist: Playlist): RecyclerView.Adapter<CustomViewHolder>() {
+class MainAdapter(private val playlist: Playlist): RecyclerView.Adapter<CustomViewHolder>() {
 
     private val numVideos = 20
 

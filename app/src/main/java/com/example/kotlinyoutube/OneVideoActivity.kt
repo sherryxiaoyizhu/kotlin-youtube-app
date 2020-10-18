@@ -59,7 +59,7 @@ class OneVideoActivity: AppCompatActivity() {
                 val gson = GsonBuilder().create()
                 val onePlaylist = gson.fromJson(body, OnePlaylist::class.java)
                 runOnUiThread {
-                    recyclerView_one_video.adapter = VideoAdapter(onePlaylist)
+                    recyclerView_one_video.adapter = OneVideoAdapter(onePlaylist)
                 }
             }
 

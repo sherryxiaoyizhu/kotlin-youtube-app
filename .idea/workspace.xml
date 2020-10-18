@@ -11,9 +11,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb720c23-9b72-4185-b5be-83fdb33c61eb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/kotlinyoutube/WebViewActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_webview.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_webview.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -24,15 +21,13 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/kotlinyoutube/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/kotlinyoutube/MainActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/kotlinyoutube/MainAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/kotlinyoutube/MainAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/kotlinyoutube/Models.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/kotlinyoutube/Models.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/kotlinyoutube/OneVideoActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/kotlinyoutube/OneVideoActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/kotlinyoutube/OneVideoAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/kotlinyoutube/OneVideoAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_one_video.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_one_video.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/row_one_video.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/row_one_video.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,7 +175,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602967439580</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Add WebView">
+      <created>1603046474916</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1603046474916</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -188,7 +190,8 @@
     <MESSAGE value="Update VideoActivity" />
     <MESSAGE value="Update layout" />
     <MESSAGE value="Refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring" />
+    <MESSAGE value="Add WebView" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add WebView" />
   </component>
   <component name="WindowStateProjectService">
     <state x="458" y="180" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1603044091881">
@@ -199,30 +202,30 @@
       <screen x="0" y="23" width="1440" height="806" />
     </state>
     <state x="308" y="188" key="AndroidCreateResourceFileDialog/0.23.1440.806@0.23.1440.806" timestamp="1603039666115" />
-    <state x="298" y="28" key="CommitChangelistDialog2" timestamp="1602967439239">
+    <state x="298" y="28" key="CommitChangelistDialog2" timestamp="1603046474556">
       <screen x="0" y="23" width="1440" height="806" />
     </state>
-    <state x="298" y="28" key="CommitChangelistDialog2/0.23.1440.806@0.23.1440.806" timestamp="1602967439239" />
-    <state width="1398" height="165" key="GridCell.Tab.0.bottom" timestamp="1603043963563">
+    <state x="298" y="28" key="CommitChangelistDialog2/0.23.1440.806@0.23.1440.806" timestamp="1603046474556" />
+    <state width="1398" height="165" key="GridCell.Tab.0.bottom" timestamp="1603058122838">
       <screen x="0" y="23" width="1440" height="806" />
     </state>
-    <state width="1398" height="165" key="GridCell.Tab.0.bottom/0.23.1440.806@0.23.1440.806" timestamp="1603043963563" />
-    <state width="1398" height="165" key="GridCell.Tab.0.center" timestamp="1603043963562">
+    <state width="1398" height="165" key="GridCell.Tab.0.bottom/0.23.1440.806@0.23.1440.806" timestamp="1603058122838" />
+    <state width="1398" height="165" key="GridCell.Tab.0.center" timestamp="1603058122837">
       <screen x="0" y="23" width="1440" height="806" />
     </state>
-    <state width="1398" height="165" key="GridCell.Tab.0.center/0.23.1440.806@0.23.1440.806" timestamp="1603043963562" />
-    <state width="1398" height="165" key="GridCell.Tab.0.left" timestamp="1603043963562">
+    <state width="1398" height="165" key="GridCell.Tab.0.center/0.23.1440.806@0.23.1440.806" timestamp="1603058122837" />
+    <state width="1398" height="165" key="GridCell.Tab.0.left" timestamp="1603058122837">
       <screen x="0" y="23" width="1440" height="806" />
     </state>
-    <state width="1398" height="165" key="GridCell.Tab.0.left/0.23.1440.806@0.23.1440.806" timestamp="1603043963562" />
-    <state width="1398" height="165" key="GridCell.Tab.0.right" timestamp="1603043963563">
+    <state width="1398" height="165" key="GridCell.Tab.0.left/0.23.1440.806@0.23.1440.806" timestamp="1603058122837" />
+    <state width="1398" height="165" key="GridCell.Tab.0.right" timestamp="1603058122837">
       <screen x="0" y="23" width="1440" height="806" />
     </state>
-    <state width="1398" height="165" key="GridCell.Tab.0.right/0.23.1440.806@0.23.1440.806" timestamp="1603043963563" />
-    <state x="320" y="166" key="Vcs.Push.Dialog.v2" timestamp="1602967443617">
+    <state width="1398" height="165" key="GridCell.Tab.0.right/0.23.1440.806@0.23.1440.806" timestamp="1603058122837" />
+    <state x="320" y="166" key="Vcs.Push.Dialog.v2" timestamp="1603046478713">
       <screen x="0" y="23" width="1440" height="806" />
     </state>
-    <state x="320" y="166" key="Vcs.Push.Dialog.v2/0.23.1440.806@0.23.1440.806" timestamp="1602967443617" />
+    <state x="320" y="166" key="Vcs.Push.Dialog.v2/0.23.1440.806@0.23.1440.806" timestamp="1603046478713" />
     <state x="497" y="211" key="chooseDestDirectoryDialog" timestamp="1602790928528">
       <screen x="0" y="23" width="1440" height="806" />
     </state>

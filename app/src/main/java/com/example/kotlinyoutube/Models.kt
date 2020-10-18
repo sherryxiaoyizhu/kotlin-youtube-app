@@ -8,7 +8,7 @@ class Video(val snippet: Snippet)
 class Snippet(val publishedAt: String, val title: String, val description: String,
               val channelTitle: String, val position: Int, val thumbnails: Thumbnails)
 
-// parse Json: VideoActivity
+// parse Json: OneVideoActivity
 class OnePlaylist(val items: List<OneVideo>)
 
 class OneVideo(val snippet: OneSnippet)
