@@ -26,6 +26,13 @@
             <meta-data android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
+
+        <activity android:name=".WebViewActivity"
+            android:label="Video WebView"
+            android:launchMode="singleTop">
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value=".OneVideoActivity" />
+        </activity>
     </application>
 
 </manifest>

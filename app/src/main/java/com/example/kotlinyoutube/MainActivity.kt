@@ -11,18 +11,20 @@ import okhttp3.*
 import java.io.IOException
 
 class MainActivity: AppCompatActivity() {
+
+    companion object {
+        const val MY_SECRET_API_KEY = "AIzaSyArKlbgIq5WSsDxoo2AFc4JD4qRAiJf1Xs" // update and put it in .env before publishing the repo
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         // set up tool bar
         setSupportActionBar(mainToolbar)
-
         // set up recycler view
         recyclerView_main.layoutManager = LinearLayoutManager(this)
 
         // get playlist url
-        val MY_SECRET_API_KEY = "AIzaSyArKlbgIq5WSsDxoo2AFc4JD4qRAiJf1Xs" // update and put it in .env before publishing the repo
         val url = "https://www.googleapis.com/youtube/v3/playlistItems?&maxResults=100" +
                 "&playlistId=PLx0sYbCqOb8TBPRdmBHs5Iftvv9TPboYG" +
                 "&key=$MY_SECRET_API_KEY" +
@@ -30,10 +32,10 @@ class MainActivity: AppCompatActivity() {
                 "&part=snippet"
 
         // fetch JSON for video list
-        fetchJson(url)
+        fetchJSON(url)
     }
 
-    private fun fetchJson(url: String) {
+    private fun fetchJSON(url: String) {
         val request = Request.Builder().url(url).build()
         val client = OkHttpClient()
 

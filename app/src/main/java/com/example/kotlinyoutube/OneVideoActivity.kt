@@ -4,44 +4,50 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.kotlinyoutube.MainActivity.Companion.MY_SECRET_API_KEY
 import com.google.gson.GsonBuilder
 import kotlinx.android.synthetic.main.activity_one_video.*
 import kotlinx.android.synthetic.main.content_one_video.*
 import okhttp3.*
 import java.io.IOException
 
-class OneVideoActivity : AppCompatActivity() {
+class OneVideoActivity: AppCompatActivity() {
+
+    companion object {
+        var videoURL = ""
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_one_video)
-
         // set up tool bar
         setSupportActionBar(toolbar)
-
-        // set up recycler view
-        recyclerView_video_detail.layoutManager = LinearLayoutManager(this)
-
         // display ActionBar back button
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        // set up recycler view
+        recyclerView_one_video.layoutManager = LinearLayoutManager(this)
 
-        // update ActionBar title
-        val navBarTitle = intent.getStringExtra(CustomViewHolder.VIDEO_TITLE_KEY)
-        supportActionBar?.title = navBarTitle
+        // get data through intent
+        intent.extras?.apply {
 
-        // get video url
-        val MY_SECRET_API_KEY = "AIzaSyArKlbgIq5WSsDxoo2AFc4JD4qRAiJf1Xs" // update and put it in .env before publishing the repo
-        val videoId = intent.getStringExtra(CustomViewHolder.VIDEO_ID_KEY).toString().substringBefore('/')
-        val url = "https://www.googleapis.com/youtube/v3/videos?"+
-                "id=$videoId"+
-                "&key=$MY_SECRET_API_KEY"+
-                "&part=snippet,contentDetails,statistics,status"
+            // update ActionBar title
+            val navBarTitle = getString(CustomViewHolder.VIDEO_TITLE_KEY)
+            supportActionBar?.title = navBarTitle
 
-        // fetch JSON for video detail
-        fetchJson(url)
+            // get video url
+            val videoId = getString(CustomViewHolder.VIDEO_ID_KEY).toString().substringBefore('/')
+            val url = "https://www.googleapis.com/youtube/v3/videos?"+
+                    "id=$videoId"+
+                    "&key=$MY_SECRET_API_KEY"+
+                    "&part=snippet,contentDetails,statistics,status"
+            videoURL = "https://www.youtube.com/watch?v=$videoId"
+
+            // fetch JSON for video detail
+            fetchJSON(url)
+        }
     }
 
-    private fun fetchJson(url: String) {
+    private fun fetchJSON(url: String) {
         val request = Request.Builder().url(url).build()
         val client = OkHttpClient()
 
@@ -51,9 +57,9 @@ class OneVideoActivity : AppCompatActivity() {
                 //Log.d("XXX", "Json parsed: $body")
 
                 val gson = GsonBuilder().create()
-                val playlistDetail = gson.fromJson(body, OnePlaylist::class.java)
+                val onePlaylist = gson.fromJson(body, OnePlaylist::class.java)
                 runOnUiThread {
-                    recyclerView_video_detail.adapter = VideoAdapter(playlistDetail)
+                    recyclerView_one_video.adapter = VideoAdapter(onePlaylist)
                 }
             }
 

@@ -1,25 +1,27 @@
 package com.example.kotlinyoutube
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.kotlinyoutube.OneVideoActivity.Companion.videoURL
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.row_one_video.view.*
 
-class VideoAdapter(val onePlaylist: OnePlaylist): RecyclerView.Adapter<VideoDetailViewHolder>() {
+class VideoAdapter(val onePlaylist: OnePlaylist): RecyclerView.Adapter<OneVideoViewHolder>() {
 
     override fun getItemCount(): Int {
         return 1
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VideoDetailViewHolder {
-        val layoutInflater = LayoutInflater.from(parent.context)
-        val customView = layoutInflater.inflate(R.layout.row_one_video, parent, false)
-        return VideoDetailViewHolder(customView)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OneVideoViewHolder {
+        val customView = LayoutInflater.from(parent.context)
+            .inflate(R.layout.row_one_video, parent, false)
+        return OneVideoViewHolder(customView)
     }
 
-    override fun onBindViewHolder(holder: VideoDetailViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: OneVideoViewHolder, position: Int) {
         val oneVideo = onePlaylist.items[0]
 
         // display video detail thumbnail
@@ -28,6 +30,18 @@ class VideoAdapter(val onePlaylist: OnePlaylist): RecyclerView.Adapter<VideoDeta
     }
 }
 
-class VideoDetailViewHolder(val view: View): RecyclerView.ViewHolder(view) {
+class OneVideoViewHolder(val view: View): RecyclerView.ViewHolder(view) {
 
+    companion object {
+        const val WEB_URL_KEY = "WEB_URL"
+    }
+
+    init {
+        view.setOnClickListener {
+            val intent = Intent(view.context, WebViewActivity::class.java).apply {
+                putExtra(WEB_URL_KEY, videoURL)
+            }
+            view.context.startActivity(intent)
+        }
+    }
 }
