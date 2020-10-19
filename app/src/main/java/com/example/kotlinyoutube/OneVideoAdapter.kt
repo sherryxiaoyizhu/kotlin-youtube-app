@@ -31,11 +31,11 @@ class OneVideoAdapter(private val onePlaylist: OnePlaylist): RecyclerView.Adapte
         Picasso.with(holder.view.context).load(oneVideo.snippet.thumbnails.standard.url).into(thumbnailImageView)
 
         // display video details: views, published time, likes, dislikes
-        //val viewCount = oneVideo.snippet.statistics.viewCount
+        val viewCount = oneVideo.statistics.viewCount
         val publishedAt = oneVideo.snippet.publishedAt
-        holder.view.viewCount_publishedAt_TV.text = publishedAt
-        //holder.view.likeCountTV.text = oneVideo.snippet.statistics.likeCount
-        //holder.view.dislikeCountTV.text = oneVideo.snippet.statistics.dislikeCount
+        holder.view.viewCount_publishedAt_TV.text = viewCount + publishedAt
+        holder.view.likeCountTV.text = oneVideo.statistics.likeCount
+        holder.view.dislikeCountTV.text = oneVideo.statistics.dislikeCount
     }
 }
 

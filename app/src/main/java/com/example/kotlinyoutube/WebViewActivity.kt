@@ -10,7 +10,9 @@ class WebViewActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_webview)
+        // set up tool bar
         setSupportActionBar(toolbar)
+        // display ActionBar back button
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         // load web url
