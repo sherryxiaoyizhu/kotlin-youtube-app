@@ -2,9 +2,18 @@
 
 KotlinYouTube is an Android mobile application which renders hit music videos by parsing JSON through YouTube Data API.
 
-### Features
+### Features and Funcationalities
 
-- In progress
+#### Main Activity
+
+- Fetch and display thumbnail image, video title, channel profile image, number of views, and published time from network through YouTube Data API
+- Click on video (random piece) and redirect to one video view
+
+### One Video Activity
+
+- Fetch and display vide title (ellipsized "..." in action bar), thumbnail image, number views, published time, number of likes, number of comments from network through YouTube Data API
+- Show video description in ScrollView
+- Click on video thumbnail and redirect to a web view
 
 ### API
 

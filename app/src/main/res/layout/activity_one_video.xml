@@ -26,6 +26,7 @@
                 android:padding="10dp"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:ellipsize="end" />
+
         </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>

@@ -16,4 +16,8 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <!-- Customize text style -->
+<!--    <style name="TextAppearance.AppCompat.Widget.ActionBar.Title" parent="android:style/TextAppearance">-->
+<!--        <item name="android:textColor">@color/titleColor</item>-->
+<!--    </style>-->
 </resources>

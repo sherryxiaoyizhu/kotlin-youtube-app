@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_margin="8dp">
+        android:layout_margin="12dp">
 
         <ImageView
             android:id="@+id/videoDetailImageView"
@@ -24,30 +24,90 @@
         <TextView
             android:id="@+id/viewCount_publishedAt_TV"
             android:text="28,500,000 views • Feb 19, 2020"
+            android:textSize="17sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"/>
+            android:layout_margin="12dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:id="@+id/statsLayout"
+            app:layout_constraintTop_toBottomOf="@+id/viewCount_publishedAt_TV">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/like_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:src="@drawable/ic_star_black_24dp" />
+
+                <TextView
+                    android:id="@+id/likeCountTV"
+                    android:text="306K"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2">
+
+                <ImageView
+                    android:id="@+id/comments_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:src="@drawable/ic_comment_black_24dp" />
+
+                <TextView
+                    android:id="@+id/commentsCount"
+                    android:text="17K"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:layout_weight="1"
+                android:id="@+id/rowFav"
+                android:src="@drawable/ic_favorite_border_black_24dp" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/dividerBar"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#ff000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="parent" />
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical"
             android:layout_margin="8dp">
 
             <TextView
-                android:id="@+id/likeCountTV"
-                android:text="306K"
+                android:id="@+id/oneVideoDescriptionTV"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"/>
-
-            <TextView
-                android:id="@+id/dislikeCountTV"
-                android:text="17K"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-        </LinearLayout>
+                android:layout_height="wrap_content" />
+        </ScrollView>
 
     </LinearLayout>
 

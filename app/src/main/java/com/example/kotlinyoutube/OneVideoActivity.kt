@@ -2,6 +2,7 @@ package com.example.kotlinyoutube
 
 import android.os.Bundle
 import android.util.Log
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kotlinyoutube.MainActivity.Companion.MY_SECRET_API_KEY
@@ -13,6 +14,9 @@ import java.io.IOException
 
 class OneVideoActivity: AppCompatActivity() {
 
+    // initialize viewModel
+    private val viewModel: MainViewModel by viewModels()
+
     companion object {
         var videoURL = ""
     }
@@ -22,10 +26,10 @@ class OneVideoActivity: AppCompatActivity() {
         setContentView(R.layout.activity_one_video)
         // set up tool bar
         setSupportActionBar(toolbar)
-        // display ActionBar back button
+        // enable ActionBar back button
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         // set up recycler view
-        recyclerView_one_video.layoutManager = LinearLayoutManager(this)
+        recyclerView_one_video.layoutManager = LinearLayoutManager(this) // ***
 
         // get data through intent
         intent.extras?.apply {
@@ -40,6 +44,7 @@ class OneVideoActivity: AppCompatActivity() {
                     "id=$videoId"+
                     "&key=$MY_SECRET_API_KEY"+
                     "&part=snippet,contentDetails,statistics,status"
+
             videoURL = "https://www.youtube.com/watch?v=$videoId"
 
             // fetch JSON for video detail
@@ -59,7 +64,7 @@ class OneVideoActivity: AppCompatActivity() {
                 val gson = GsonBuilder().create()
                 val onePlaylist = gson.fromJson(body, OnePlaylist::class.java)
                 runOnUiThread {
-                    recyclerView_one_video.adapter = OneVideoAdapter(onePlaylist)
+                    recyclerView_one_video.adapter = OneVideoAdapter(onePlaylist, viewModel) // ***
                 }
             }
 

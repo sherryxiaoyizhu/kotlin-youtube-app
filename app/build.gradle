@@ -21,6 +21,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    // to properly implement viewModels()
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 dependencies {
@@ -34,6 +39,9 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    // https://developer.android.com/jetpack/androidx/releases/activity
+    implementation "androidx.activity:activity-ktx:1.1.0"
 
     // integrate 3rd party libraries
     implementation "com.squareup.okhttp3:okhttp:4.9.0"
