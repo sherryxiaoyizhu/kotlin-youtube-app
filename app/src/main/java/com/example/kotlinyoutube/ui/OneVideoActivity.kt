@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kotlinyoutube.MainActivity.Companion.MY_SECRET_API_KEY
 import com.example.kotlinyoutube.R
 import com.example.kotlinyoutube.api.OnePlaylist
+import com.example.kotlinyoutube.api.OneVideo
 import com.google.gson.GsonBuilder
 import kotlinx.android.synthetic.main.activity_one_video.*
 import kotlinx.android.synthetic.main.content_one_video_rv.*
@@ -54,7 +56,9 @@ class OneVideoActivity: AppCompatActivity() {
         }
     }
 
-    fun fetchJSON(url: String) {
+    fun fetchJSON(url: String): List<OneVideo> {
+
+        var videoList = listOf<OneVideo>()
         val request = Request.Builder().url(url).build()
         val client = OkHttpClient()
 
@@ -65,13 +69,10 @@ class OneVideoActivity: AppCompatActivity() {
 
                 val gson = GsonBuilder().create()
                 val onePlaylist = gson.fromJson(body, OnePlaylist::class.java)
+                videoList = onePlaylist.items
+
                 runOnUiThread {
                     recyclerView_one_video.adapter = OneVideoAdapter(onePlaylist, viewModel) // ***
-//                    viewModel.observeVideos().observe(viewLifecycleOwner, Observer {
-//                        viewAdapter.submitList(it)
-//                        viewAdapter.notifyDataSetChanged()
-//                        swipe.isRefreshing = false
-//                    })
                 }
             }
 
@@ -79,5 +80,6 @@ class OneVideoActivity: AppCompatActivity() {
                 Log.d("XXX", "Failed to execute request")
             }
         })
+        return videoList
     }
 }

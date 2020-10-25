@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -31,9 +32,9 @@ class Favorites: Fragment() {
         // update the tool bar title
         viewModel.setTitle("Favorites")
         // inflate fragment recycler view
-        val root = inflater.inflate(R.layout.fragment_rv, container, false)
+        val root = inflater.inflate(R.layout.content_one_video_rv, container, false)
         root.findViewById<SwipeRefreshLayout>(R.id.swipeRefreshLayout).isEnabled = false
-        //initAdapter(root)
+        initAdapter(root)
 
         // back button
         requireActivity().onBackPressedDispatcher
@@ -45,7 +46,17 @@ class Favorites: Fragment() {
     }
 
     // Set up the adapter
-//    private fun initAdapter(root: View) {
+    private fun initAdapter(root: View) {
+//        val onePlaylist: OnePlaylist
+//        val viewAdapter = OneVideoAdapter(onePlaylist, viewModel)
+//        root.findViewById<RecyclerView>(R.id.recyclerView_one_video).apply {
+//            adapter = viewAdapter
+//            layoutManager = LinearLayoutManager(root.context)
+//        }
 //
-//    }
+//        viewModel.observeFavorites().observe(viewLifecycleOwner, Observer {
+//            //viewAdapter.submitList(it)
+//            viewAdapter.notifyDataSetChanged()
+//        })
+    }
 }

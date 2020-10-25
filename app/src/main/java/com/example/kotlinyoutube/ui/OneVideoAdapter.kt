@@ -47,7 +47,7 @@ class OneVideoAdapter(private val onePlaylist: OnePlaylist,
 
             // enable favorite feature in favorites (and main..) fragment
             itemView.rowFav.setOnClickListener {
-                val item =onePlaylist.items[adapterPosition]
+                val item= onePlaylist.items[adapterPosition]
                 if (viewModel.isFavorite(item)) {
                     viewModel.removeFavorite(item)
                     itemView.rowFav.setImageResource(R.drawable.ic_favorite_border_black_24dp)

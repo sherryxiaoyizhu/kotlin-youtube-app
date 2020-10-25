@@ -12,8 +12,7 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.row_main.view.*
 
 class MainAdapter(private val playlist: Playlist,
-                  private val viewModel: MainViewModel
-)
+                  private val viewModel: MainViewModel)
     : RecyclerView.Adapter<CustomViewHolder>() {
 
     private val numVideos = 20 // fetch 20 videos on main view

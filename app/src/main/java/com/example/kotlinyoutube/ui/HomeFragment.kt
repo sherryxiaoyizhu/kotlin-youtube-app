@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.kotlinyoutube.MainActivity
@@ -52,9 +53,7 @@ class HomeFragment: Fragment() {
         }
     }
 
-    fun fetchJSON(): String {
-
-        var videos = ""
+    fun fetchJSON() {
 
         // get playlist url
         val httpurl = "https://www.googleapis.com/youtube/v3/playlistItems?&maxResults=100" +
@@ -70,26 +69,24 @@ class HomeFragment: Fragment() {
             override fun onResponse(call: Call, response: Response) {
                 val body = response.body?.string()
                 //Log.d("XXX", "Json parsed: $body")
-                videos = body!!
 
                 val gson = GsonBuilder().create()
                 val playlist = gson.fromJson(body, Playlist::class.java)
                 // https://stackoverflow.com/questions/57330607/kotlin-runonuithread-unresolved-reference
                 activity?.runOnUiThread {
                     // initialize adapter
-                    val viewAdapter = MainAdapter(
-                        playlist,
-                        viewModel
-                    )
+                    val viewAdapter = MainAdapter(playlist, viewModel)
                     recyclerView.apply {
                         adapter = viewAdapter // ***
                         layoutManager = LinearLayoutManager(this.context)
                     }
-//                    viewModel.observeVideos().observe(viewLifecycleOwner, Observer {
-//                        viewAdapter.submitList(it)
-//                        viewAdapter.notifyDataSetChanged()
-//                        swipe.isRefreshing = false
-//                    })
+                    // observe data change
+                    viewModel.observeVideos().observe(viewLifecycleOwner,
+                        Observer {
+                            //viewAdapter.submitList(it)
+                            viewAdapter.notifyDataSetChanged()
+                            swipe.isRefreshing = false
+                    })
                 }
             }
 
@@ -97,6 +94,5 @@ class HomeFragment: Fragment() {
                 Log.d("XXX", "Failed to execute request")
             }
         })
-        return videos
     }
 }

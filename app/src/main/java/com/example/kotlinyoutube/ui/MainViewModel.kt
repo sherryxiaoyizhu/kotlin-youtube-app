@@ -1,9 +1,7 @@
 package com.example.kotlinyoutube.ui
 
-import android.widget.TextView
 import androidx.lifecycle.*
 import com.example.kotlinyoutube.api.OneVideo
-import com.example.kotlinyoutube.api.Playlist
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.text.NumberFormat
@@ -28,13 +26,13 @@ class MainViewModel: ViewModel() {
         value = mutableListOf()
     }
 
-    private var netVideos = MediatorLiveData<String>().apply {
+    private var netVideos = MediatorLiveData<List<OneVideo>>().apply {
         addSource(video) {
             viewModelScope.launch(
                 context = viewModelScope.coroutineContext
                         + Dispatchers.IO
             ) {
-                postValue(HomeFragment().fetchJSON())
+                //postValue(HomeFragment().fetchJSON())
             }
         }
     }
@@ -49,7 +47,7 @@ class MainViewModel: ViewModel() {
         video.value = fetch
     }
 
-    fun observeVideos(): LiveData<String> {
+    fun observeVideos(): LiveData<List<OneVideo>> {
         return netVideos // searchVideos
     }
 
