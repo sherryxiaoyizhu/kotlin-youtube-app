@@ -5,10 +5,13 @@ import android.view.LayoutInflater
 import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
+import com.example.kotlinyoutube.api.Playlist
+import com.example.kotlinyoutube.api.Video
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.row_main.view.*
 
-class MainAdapter(private val playlist: Playlist, private val viewModel: MainViewModel)
+class MainAdapter(private val playlist: Playlist,
+                  private val viewModel: MainViewModel)
     : RecyclerView.Adapter<CustomViewHolder>() {
 
     private val numVideos = 20 // fetch 20 videos on main view

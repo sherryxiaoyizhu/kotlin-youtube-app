@@ -6,6 +6,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kotlinyoutube.MainActivity.Companion.MY_SECRET_API_KEY
+import com.example.kotlinyoutube.api.OnePlaylist
 import com.google.gson.GsonBuilder
 import kotlinx.android.synthetic.main.activity_one_video.*
 import kotlinx.android.synthetic.main.content_one_video.*
@@ -18,7 +19,7 @@ class OneVideoActivity: AppCompatActivity() {
     private val viewModel: MainViewModel by viewModels()
 
     companion object {
-        var videoURL = ""
+        var videoUrl = ""
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,15 +41,15 @@ class OneVideoActivity: AppCompatActivity() {
 
             // get video url
             val videoId = getString(CustomViewHolder.VIDEO_ID_KEY).toString().substringBefore('/')
-            val url = "https://www.googleapis.com/youtube/v3/videos?"+
+            val httpUrl = "https://www.googleapis.com/youtube/v3/videos?"+
                     "id=$videoId"+
                     "&key=$MY_SECRET_API_KEY"+
                     "&part=snippet,contentDetails,statistics,status"
 
-            videoURL = "https://www.youtube.com/watch?v=$videoId"
+            videoUrl = "https://www.youtube.com/watch?v=$videoId"
 
             // fetch JSON for video detail
-            fetchJSON(url)
+            fetchJSON(httpUrl)
         }
     }
 

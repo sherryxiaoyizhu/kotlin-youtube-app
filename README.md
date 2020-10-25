@@ -45,5 +45,5 @@ KotlinYouTube is an Android mobile application that renders hit music videos by 
 
 ### Source:
 
-- [CS 395T Android Programming by UT Austin](https://www.cs.utexas.edu/users/witchel/371M/schedule.html)
-- [YouTube Tutorial by Lets Build That App Channel](https://www.youtube.com/playlist?list=PL0dzCUj1L5JGfHj1lwxOq67zAJV3e1S9S)
+- [CS 395T Android Programming](https://www.cs.utexas.edu/users/witchel/371M/schedule.html) by UT Austin
+- [YouTube Tutorial](https://www.youtube.com/playlist?list=PL0dzCUj1L5JGfHj1lwxOq67zAJV3e1S9S) by Lets Build That App Channel

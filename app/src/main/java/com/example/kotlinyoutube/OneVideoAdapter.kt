@@ -6,11 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.kotlinyoutube.OneVideoActivity.Companion.videoURL
+import com.example.kotlinyoutube.OneVideoActivity.Companion.videoUrl
+import com.example.kotlinyoutube.api.OnePlaylist
+import com.example.kotlinyoutube.api.OneVideo
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.row_one_video.view.*
 
-class OneVideoAdapter(private val onePlaylist: OnePlaylist, private val viewModel: MainViewModel)
+class OneVideoAdapter(private val onePlaylist: OnePlaylist,
+                      private val viewModel: MainViewModel)
     : RecyclerView.Adapter<OneVideoViewHolder>() {
 
     override fun getItemCount(): Int {
@@ -39,7 +42,7 @@ class OneVideoViewHolder(val view: View, private val viewModel: MainViewModel): 
     init {
         view.videoDetailImageView.setOnClickListener {
             val intent = Intent(view.context, WebViewActivity::class.java).apply {
-                putExtra(WEB_URL_KEY, videoURL)
+                putExtra(WEB_URL_KEY, videoUrl)
             }
             view.context.startActivity(intent)
         }
