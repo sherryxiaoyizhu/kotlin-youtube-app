@@ -1,104 +1,64 @@
 package com.example.kotlinyoutube
 
-import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import androidx.activity.viewModels
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.example.kotlinyoutube.api.Playlist
-import com.google.gson.GsonBuilder
+import com.example.kotlinyoutube.ui.HomeFragment
+import com.example.kotlinyoutube.ui.MainViewModel
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.content_main.*
-import okhttp3.*
-import java.io.IOException
-import java.util.Observer
 
 class MainActivity: AppCompatActivity() {
+
+    private lateinit var homeFragment: HomeFragment
+
+    // initialize viewModel
+    private val viewModel: MainViewModel by viewModels()
 
     companion object {
         const val MY_SECRET_API_KEY = "AIzaSyArKlbgIq5WSsDxoo2AFc4JD4qRAiJf1Xs" // update and put it in .env before publishing the repo
     }
 
-    private lateinit var swipe: SwipeRefreshLayout
-
-    // initialize viewModel
-    private val viewModel: MainViewModel by viewModels()
-
-    @SuppressLint("InflateParams")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        // set up tool bar
-        setSupportActionBar(mainToolbar)
-
-        // inflate content_main and initialize swipe refresh layout
-        val root = layoutInflater.inflate(R.layout.content_main, null)
-        initSwipeLayout(root)
-        //initAdapter(root)
-
-        // set up recycler view
-        recyclerView_main.layoutManager = LinearLayoutManager(this) // ***
-
-        // fetch JSON for video playlist
-        fetchJSON()
-    }
-
-    private fun initSwipeLayout(root: View) {
-        swipe = root.findViewById(R.id.swipeRefreshLayout)
-        swipe.isRefreshing = true
-        swipe.setOnRefreshListener {
-            swipe.isRefreshing = true
-            viewModel.repoFetch()
+        // set up action bar
+        setSupportActionBar(toolbar)
+        supportActionBar?.let{
+            initActionBar(it)
         }
+        // initialize home fragment
+        homeFragment = HomeFragment.newInstance()
+        initHomeFragment()
     }
 
-    fun fetchJSON(): String {
+    fun hideKeyboard() {
+        val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(window.decorView.rootView.windowToken, 0);
+    }
 
-        var videos = ""
+    // https://stackoverflow.com/questions/24838155/set-onclick-listener-on-action-bar-title-in-android/29823008#29823008
+    private fun initActionBar(actionBar: ActionBar) {
+        // Disable the default and enable the custom
+        actionBar.setDisplayShowTitleEnabled(false)
+        actionBar.setDisplayShowCustomEnabled(true)
+        val customView: View =
+            layoutInflater.inflate(R.layout.action_bar, null)
+        // Apply the custom view
+        actionBar.customView = customView
+    }
 
-        // get playlist url
-        val httpurl = "https://www.googleapis.com/youtube/v3/playlistItems?&maxResults=100" +
-                "&playlistId=PLx0sYbCqOb8TBPRdmBHs5Iftvv9TPboYG" +
-                "&key=$MY_SECRET_API_KEY" +
-                "&fields=items(snippet(publishedAt,title,description,channelTitle,position,thumbnails))" +
-                "&part=snippet"
-
-        val request = Request.Builder().url(httpurl).build()
-        val client = OkHttpClient()
-
-        client.newCall(request).enqueue(object: Callback {
-            override fun onResponse(call: Call, response: Response) {
-                val body = response.body?.string()
-                //Log.d("XXX", "Json parsed: $body")
-                videos = body!!
-
-                val gson = GsonBuilder().create()
-                val playlist = gson.fromJson(body, Playlist::class.java)
-                runOnUiThread {
-
-                    // initialize adapter
-                    val viewAdapter = MainAdapter(playlist, viewModel)
-                    recyclerView_main.apply {
-                        adapter = viewAdapter // ***
-                        layoutManager = LinearLayoutManager(this.context)
-                    }
-//                    viewModel.observeVideos().observe(viewLifecycleOwner,
-//                        Observer {
-//                            viewAdapter.submitList(it)
-//                            viewAdapter.notifyDataSetChanged()
-//                            swipe.isRefreshing = false
-//                    })
-                }
-            }
-
-            override fun onFailure(call: Call, e: IOException) {
-                Log.d("XXX", "Failed to execute request")
-            }
-        })
-        return videos
+    private fun initHomeFragment() {
+        supportFragmentManager
+            .beginTransaction()
+            // No back stack for home
+            .add(R.id.main_frame, homeFragment)
+            // TRANSIT_FRAGMENT_FADE calls for the Fragment to fade away
+            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+            .commit()
     }
 }

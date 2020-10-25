@@ -1,4 +1,4 @@
-package com.example.kotlinyoutube
+package com.example.kotlinyoutube.ui
 
 import android.os.Bundle
 import android.util.Log
@@ -6,10 +6,11 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kotlinyoutube.MainActivity.Companion.MY_SECRET_API_KEY
+import com.example.kotlinyoutube.R
 import com.example.kotlinyoutube.api.OnePlaylist
 import com.google.gson.GsonBuilder
 import kotlinx.android.synthetic.main.activity_one_video.*
-import kotlinx.android.synthetic.main.content_one_video.*
+import kotlinx.android.synthetic.main.content_one_video_rv.*
 import okhttp3.*
 import java.io.IOException
 
@@ -53,7 +54,7 @@ class OneVideoActivity: AppCompatActivity() {
         }
     }
 
-    private fun fetchJSON(url: String) {
+    fun fetchJSON(url: String) {
         val request = Request.Builder().url(url).build()
         val client = OkHttpClient()
 
@@ -66,6 +67,11 @@ class OneVideoActivity: AppCompatActivity() {
                 val onePlaylist = gson.fromJson(body, OnePlaylist::class.java)
                 runOnUiThread {
                     recyclerView_one_video.adapter = OneVideoAdapter(onePlaylist, viewModel) // ***
+//                    viewModel.observeVideos().observe(viewLifecycleOwner, Observer {
+//                        viewAdapter.submitList(it)
+//                        viewAdapter.notifyDataSetChanged()
+//                        swipe.isRefreshing = false
+//                    })
                 }
             }
 

@@ -1,6 +1,8 @@
-package com.example.kotlinyoutube
+package com.example.kotlinyoutube.ui
 
+import android.widget.TextView
 import androidx.lifecycle.*
+import com.example.kotlinyoutube.api.OneVideo
 import com.example.kotlinyoutube.api.Playlist
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -19,7 +21,12 @@ class MainViewModel: ViewModel() {
         private const val DAY_MILLIS = 24 * HOUR_MILLIS
     }
 
+    // initialization
+    private var title = MutableLiveData<String>()
     private var video = MutableLiveData<String>()
+    private val favoriteVideos = MutableLiveData<List<OneVideo>>().apply {
+        value = mutableListOf()
+    }
 
     private var netVideos = MediatorLiveData<String>().apply {
         addSource(video) {
@@ -27,9 +34,13 @@ class MainViewModel: ViewModel() {
                 context = viewModelScope.coroutineContext
                         + Dispatchers.IO
             ) {
-                postValue( MainActivity().fetchJSON())
+                postValue(HomeFragment().fetchJSON())
             }
         }
+    }
+
+    fun setTitle(newTitle: String) {
+        title.value = newTitle
     }
 
     // refresh to fetch new videos for the playlist
@@ -41,6 +52,32 @@ class MainViewModel: ViewModel() {
     fun observeVideos(): LiveData<String> {
         return netVideos // searchVideos
     }
+
+    fun observeFavorites(): LiveData<List<OneVideo>> {
+        return favoriteVideos // searchFavorites
+    }
+
+    fun isFavorite(video: OneVideo): Boolean {
+        return favoriteVideos.value?.contains(video)!!
+    }
+
+    fun addFavorite(video: OneVideo) {
+        val favList = favoriteVideos.value?.toMutableList()
+        if (!favList?.contains(video)!!) {
+            favList.add(video)
+            favoriteVideos.value = favList
+        }
+    }
+
+    fun removeFavorite(video: OneVideo) {
+        val favList = favoriteVideos.value?.toMutableList()
+        if (favList?.contains(video)!!) {
+            favList.remove(video)
+            favoriteVideos.value = favList
+        }
+    }
+
+    // *** ***
 
     // convert Integer to String with comma for thousands
     fun getThousands(count: String): String {

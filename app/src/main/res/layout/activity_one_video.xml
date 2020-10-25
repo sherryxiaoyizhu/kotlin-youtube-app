@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OneVideoActivity">
+    tools:context=".ui.OneVideoActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -31,6 +31,6 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/content_one_video" />
+    <include layout="@layout/content_one_video_rv" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

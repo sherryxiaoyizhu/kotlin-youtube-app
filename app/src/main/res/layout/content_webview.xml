@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".WebViewActivity"
+    tools:context=".ui.WebViewActivity"
     tools:showIn="@layout/activity_webview"
     android:orientation="vertical"
     android:layout_margin="8dp"

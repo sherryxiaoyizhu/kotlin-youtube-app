@@ -1,17 +1,19 @@
-package com.example.kotlinyoutube
+package com.example.kotlinyoutube.ui
 
 import android.content.Intent
 import android.view.LayoutInflater
 import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
+import com.example.kotlinyoutube.R
 import com.example.kotlinyoutube.api.Playlist
 import com.example.kotlinyoutube.api.Video
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.row_main.view.*
 
 class MainAdapter(private val playlist: Playlist,
-                  private val viewModel: MainViewModel)
+                  private val viewModel: MainViewModel
+)
     : RecyclerView.Adapter<CustomViewHolder>() {
 
     private val numVideos = 20 // fetch 20 videos on main view
@@ -23,7 +25,10 @@ class MainAdapter(private val playlist: Playlist,
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
         val cellForRow = LayoutInflater.from(parent.context)
             .inflate(R.layout.row_main, parent, false)
-        return CustomViewHolder(cellForRow, viewModel)
+        return CustomViewHolder(
+            cellForRow,
+            viewModel
+        )
     }
 
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
@@ -56,7 +61,7 @@ class CustomViewHolder(val view: View, private val viewModel: MainViewModel, var
     }
 
     fun bind(item: Video) {
-        // get models
+        // fetch data
         val channelProfileImagePath =
             "https://yt3.ggpht.com/a/AATXAJyljAWnvqx5Lmdp3UP8Js0rSqQLmf3bt76mAnL-=s900-c-k-c0xffffffff-no-rj-mo"
         val title = item.snippet.title
