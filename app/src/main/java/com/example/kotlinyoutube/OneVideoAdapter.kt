@@ -14,7 +14,7 @@ class OneVideoAdapter(private val onePlaylist: OnePlaylist, private val viewMode
     : RecyclerView.Adapter<OneVideoViewHolder>() {
 
     override fun getItemCount(): Int {
-        return 1 // return one video
+        return 1 // fetch one video
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OneVideoViewHolder {

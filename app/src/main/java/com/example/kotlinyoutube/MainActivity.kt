@@ -1,10 +1,13 @@
 package com.example.kotlinyoutube
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.google.gson.GsonBuilder
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
@@ -13,6 +16,7 @@ import java.io.IOException
 
 class MainActivity: AppCompatActivity() {
 
+    private lateinit var swipe: SwipeRefreshLayout
     // initialize viewModel
     private val viewModel: MainViewModel by viewModels()
 
@@ -20,16 +24,29 @@ class MainActivity: AppCompatActivity() {
         const val MY_SECRET_API_KEY = "AIzaSyArKlbgIq5WSsDxoo2AFc4JD4qRAiJf1Xs" // update and put it in .env before publishing the repo
     }
 
+    @SuppressLint("InflateParams")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         // set up tool bar
         setSupportActionBar(mainToolbar)
+        // inflate content_main and initialize swipe refresh layout
+        val root = layoutInflater.inflate(R.layout.content_main, null)
+        initSwipeLayout(root)
         // set up recycler view
         recyclerView_main.layoutManager = LinearLayoutManager(this) // ***
 
         // fetch JSON for video list
         fetchJSON()
+    }
+
+    private fun initSwipeLayout(root: View) {
+        swipe = root.findViewById(R.id.swipeRefreshLayout)
+        swipe.isRefreshing = true
+        swipe.setOnRefreshListener {
+            swipe.isRefreshing = true
+            viewModel.repoFetch()
+        }
     }
 
     private fun fetchJSON() {

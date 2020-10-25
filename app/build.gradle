@@ -42,6 +42,8 @@ dependencies {
 
     // https://developer.android.com/jetpack/androidx/releases/activity
     implementation "androidx.activity:activity-ktx:1.1.0"
+    //noinspection GradleCompatible: SwipeRefreshLayout
+    implementation 'com.android.support:support-v4:25.3.1'
 
     // integrate 3rd party libraries
     implementation "com.squareup.okhttp3:okhttp:4.9.0"

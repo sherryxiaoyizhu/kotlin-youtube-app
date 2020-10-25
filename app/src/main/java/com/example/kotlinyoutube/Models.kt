@@ -16,6 +16,11 @@ class MainViewModel: ViewModel() {
         private const val DAY_MILLIS = 24 * HOUR_MILLIS
     }
 
+    // refresh to fetch new videos
+    fun repoFetch() {
+
+    }
+
     // convert Integer to String with comma for thousands
     fun getThousands(count: String): String {
         return NumberFormat.getNumberInstance(Locale.US)
