@@ -1,7 +1,9 @@
 package com.example.kotlinyoutube.ui
 
+import android.util.Log
 import androidx.lifecycle.*
 import com.example.kotlinyoutube.api.OneVideo
+import com.example.kotlinyoutube.api.Video
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.text.NumberFormat
@@ -21,19 +23,18 @@ class MainViewModel: ViewModel() {
 
     // initialization
     private var title = MutableLiveData<String>()
-    private var video = MutableLiveData<String>()
+    //private var video = MutableLiveData<String>()
     private val favoriteVideos = MutableLiveData<List<OneVideo>>().apply {
         value = mutableListOf()
     }
 
-    private var netVideos = MediatorLiveData<List<OneVideo>>().apply {
-        addSource(video) {
-            viewModelScope.launch(
-                context = viewModelScope.coroutineContext
-                        + Dispatchers.IO
-            ) {
-                //postValue(HomeFragment().fetchJSON())
-            }
+    private var netVideos = MediatorLiveData<List<Video>>().apply {
+        viewModelScope.launch(
+            context = viewModelScope.coroutineContext
+                    + Dispatchers.IO
+        ) {
+            Log.d("XXX", "HomeFragment().fetchJSON(): "+HomeFragment().fetchJSON().toString())
+            //postValue(HomeFragment().fetchJSON())
         }
     }
 
@@ -43,11 +44,12 @@ class MainViewModel: ViewModel() {
 
     // refresh to fetch new videos for the playlist
     fun repoFetch() {
-        val fetch = video.value
-        video.value = fetch
+//        val fetch = video.value
+//        video.value = fetch
     }
 
-    fun observeVideos(): LiveData<List<OneVideo>> {
+    fun observeVideos(): LiveData<List<Video>> {
+        Log.d("XXX", "observeVideos() called")
         return netVideos // searchVideos
     }
 

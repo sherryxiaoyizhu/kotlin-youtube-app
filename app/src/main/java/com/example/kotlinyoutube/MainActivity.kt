@@ -20,7 +20,23 @@ class MainActivity: AppCompatActivity() {
     private val viewModel: MainViewModel by viewModels()
 
     companion object {
-        const val MY_SECRET_API_KEY = "AIzaSyArKlbgIq5WSsDxoo2AFc4JD4qRAiJf1Xs" // update and put it in .env before publishing the repo
+        // update and put it in .env before publishing the repo
+        const val MY_SECRET_API_KEY = "AIzaSyArKlbgIq5WSsDxoo2AFc4JD4qRAiJf1Xs"
+
+        const val PLAYLIST_HTTP_URL = "https://www.googleapis.com/youtube/v3/playlistItems?&maxResults=100" +
+                "&playlistId=PLx0sYbCqOb8TBPRdmBHs5Iftvv9TPboYG" +
+                "&key=${MY_SECRET_API_KEY}" +
+                "&fields=items(snippet(publishedAt,title,description,channelTitle,position,thumbnails))" +
+                "&part=snippet"
+
+        const val PLAYLIST_HTTPS_URL = "/youtube/v3/playlistItems?&maxResults=100" +
+                "&playlistId=PLx0sYbCqOb8TBPRdmBHs5Iftvv9TPboYG" +
+                "&key=${MY_SECRET_API_KEY}" +
+                "&fields=items(snippet(publishedAt,title,description,channelTitle,position,thumbnails))" +
+                "&part=snippet"
+
+        const val CHANNEL_PROFILE_IMAGE =
+            "https://yt3.ggpht.com/a/AATXAJyljAWnvqx5Lmdp3UP8Js0rSqQLmf3bt76mAnL-=s900-c-k-c0xffffffff-no-rj-mo"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

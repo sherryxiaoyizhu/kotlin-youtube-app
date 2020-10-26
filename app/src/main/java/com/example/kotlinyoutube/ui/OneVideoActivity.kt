@@ -39,16 +39,18 @@ class OneVideoActivity: AppCompatActivity() {
         intent.extras?.apply {
 
             // update ActionBar title
-            val navBarTitle = getString(CustomViewHolder.VIDEO_TITLE_KEY)
+            val navBarTitle = getString(VH.VIDEO_TITLE_KEY)
             supportActionBar?.title = navBarTitle
 
             // get video url
-            val videoId = getString(CustomViewHolder.VIDEO_ID_KEY).toString().substringBefore('/')
+            val videoId = getString(VH.VIDEO_ID_KEY).toString().substringBefore('/')
             val httpUrl = "https://www.googleapis.com/youtube/v3/videos?"+
                     "id=$videoId"+
                     "&key=$MY_SECRET_API_KEY"+
                     "&part=snippet,contentDetails,statistics,status"
 
+            // Note: home fragment renders data from a YouTube video playlist,
+            // here videoUrl is specified for each video
             videoUrl = "https://www.youtube.com/watch?v=$videoId"
 
             // fetch JSON for video detail
@@ -56,9 +58,8 @@ class OneVideoActivity: AppCompatActivity() {
         }
     }
 
-    fun fetchJSON(url: String): List<OneVideo> {
+    private fun fetchJSON(url: String){
 
-        var videoList = listOf<OneVideo>()
         val request = Request.Builder().url(url).build()
         val client = OkHttpClient()
 
@@ -69,10 +70,8 @@ class OneVideoActivity: AppCompatActivity() {
 
                 val gson = GsonBuilder().create()
                 val onePlaylist = gson.fromJson(body, OnePlaylist::class.java)
-                videoList = onePlaylist.items
-
                 runOnUiThread {
-                    recyclerView_one_video.adapter = OneVideoAdapter(onePlaylist, viewModel) // ***
+                    recyclerView_one_video.adapter = OneVideoAdapter(onePlaylist.items, viewModel) // ***
                 }
             }
 
@@ -80,6 +79,5 @@ class OneVideoActivity: AppCompatActivity() {
                 Log.d("XXX", "Failed to execute request")
             }
         })
-        return videoList
     }
 }

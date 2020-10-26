@@ -7,12 +7,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlinyoutube.R
 import com.example.kotlinyoutube.ui.OneVideoActivity.Companion.videoUrl
-import com.example.kotlinyoutube.api.OnePlaylist
 import com.example.kotlinyoutube.api.OneVideo
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.row_one_video.view.*
 
-class OneVideoAdapter(private val onePlaylist: OnePlaylist,
+class OneVideoAdapter(private val oneVideo: List<OneVideo>,
                       private val viewModel: MainViewModel)
     : RecyclerView.Adapter<OneVideoAdapter.VH>() {
 
@@ -31,10 +30,11 @@ class OneVideoAdapter(private val onePlaylist: OnePlaylist,
     }
 
     override fun onBindViewHolder(holder: VH, position: Int) {
-        val oneVideo = onePlaylist.items[holder.adapterPosition]
+        val oneVideo = oneVideo[holder.adapterPosition]
         holder.bind(oneVideo)
     }
 
+    // set up view holder
     inner class VH(val view: View, val viewModel: MainViewModel): RecyclerView.ViewHolder(view) {
 
         init {
@@ -47,7 +47,7 @@ class OneVideoAdapter(private val onePlaylist: OnePlaylist,
 
             // enable favorite feature in favorites (and main..) fragment
             itemView.rowFav.setOnClickListener {
-                val item= onePlaylist.items[adapterPosition]
+                val item= oneVideo[adapterPosition]
                 if (viewModel.isFavorite(item)) {
                     viewModel.removeFavorite(item)
                     itemView.rowFav.setImageResource(R.drawable.ic_favorite_border_black_24dp)
@@ -61,7 +61,7 @@ class OneVideoAdapter(private val onePlaylist: OnePlaylist,
 
         fun bind(item: OneVideo) {
             // fetch data
-            val videoUrl = item.snippet.thumbnails.standard.url
+            val thumbnailUrl = item.snippet.thumbnails.standard.url
             val viewCount = item.statistics.viewCount
             val publishedDate = item.snippet.publishedAt.substringBefore('T')
             val likesCount = item.statistics.likeCount
@@ -70,7 +70,7 @@ class OneVideoAdapter(private val onePlaylist: OnePlaylist,
 
             // display video detail thumbnail
             val thumbnailImageView = view.videoDetailImageView
-            Picasso.with(view.context).load(videoUrl).into(
+            Picasso.with(view.context).load(thumbnailUrl).into(
                 thumbnailImageView
             )
 

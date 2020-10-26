@@ -38,6 +38,7 @@ KotlinYouTube is an Android mobile application that renders hit music videos by 
 
 #### Libraries
 
+- [Retrofit](https://square.github.io/retrofit/) - turns HTTP API into a Java interface
 - [OkHttp](https://square.github.io/okhttp/) - an HTTP client for Android and Java applications
 - [Gson](https://guides.codepath.com/android/leveraging-the-gson-library) - provides a powerful framework for converting between JSON strings and Java objects
 - [Picasso](https://square.github.io/picasso/) - allows for hassle-free image loading in application

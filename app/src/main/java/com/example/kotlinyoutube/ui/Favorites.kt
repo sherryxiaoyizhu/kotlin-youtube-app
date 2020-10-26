@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.kotlinyoutube.R
 import com.example.kotlinyoutube.api.OnePlaylist
+import com.example.kotlinyoutube.api.Playlist
 
 class Favorites: Fragment() {
     // initialize viewModel
@@ -39,7 +40,6 @@ class Favorites: Fragment() {
         // back button
         requireActivity().onBackPressedDispatcher
             .addCallback(this) {
-                //viewModel.setTitleToSubreddit()
                 parentFragmentManager.popBackStack()
             }
         return root
@@ -47,9 +47,9 @@ class Favorites: Fragment() {
 
     // Set up the adapter
     private fun initAdapter(root: View) {
-//        val onePlaylist: OnePlaylist
-//        val viewAdapter = OneVideoAdapter(onePlaylist, viewModel)
-//        root.findViewById<RecyclerView>(R.id.recyclerView_one_video).apply {
+//        val playlist: Playlist
+//        val viewAdapter = HomeAdapter(playlist, viewModel)
+//        root.findViewById<RecyclerView>(R.id.recyclerView).apply {
 //            adapter = viewAdapter
 //            layoutManager = LinearLayoutManager(root.context)
 //        }

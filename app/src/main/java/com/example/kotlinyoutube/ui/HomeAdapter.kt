@@ -5,38 +5,39 @@ import android.view.LayoutInflater
 import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
+import com.example.kotlinyoutube.MainActivity.Companion.CHANNEL_PROFILE_IMAGE
 import com.example.kotlinyoutube.R
-import com.example.kotlinyoutube.api.Playlist
 import com.example.kotlinyoutube.api.Video
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.row_main.view.*
 
-class MainAdapter(private val playlist: Playlist,
-                  private val viewModel: MainViewModel)
-    : RecyclerView.Adapter<CustomViewHolder>() {
+class HomeAdapter(video: List<Video>, private val viewModel: MainViewModel)
+    : RecyclerView.Adapter<VH>() {
 
-    private val numVideos = 20 // fetch 20 videos on main view
+    private var videos = video //: List<Video> = listOf()
+    private val numVideos = videos.size // number of videos fetched on main view
 
     override fun getItemCount(): Int {
         return numVideos
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
         val cellForRow = LayoutInflater.from(parent.context)
             .inflate(R.layout.row_main, parent, false)
-        return CustomViewHolder(
-            cellForRow,
-            viewModel
-        )
+        return VH(cellForRow, viewModel)
     }
 
-    override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
-        val video = playlist.items[holder.adapterPosition]
-        holder.bind(video)
+    override fun onBindViewHolder(holder: VH, position: Int) {
+        holder.bind(videos[holder.adapterPosition])
+    }
+
+    fun submitList(videoList: List<Video>) {
+        videos = videoList
     }
 }
 
-class CustomViewHolder(val view: View, private val viewModel: MainViewModel, var oneVideo: Video? = null)
+// set up view holder
+class VH(val view: View, private val viewModel: MainViewModel, var oneVideo: Video? = null)
     : RecyclerView.ViewHolder(view) {
 
     companion object {
@@ -61,8 +62,7 @@ class CustomViewHolder(val view: View, private val viewModel: MainViewModel, var
 
     fun bind(item: Video) {
         // fetch data
-        val channelProfileImagePath =
-            "https://yt3.ggpht.com/a/AATXAJyljAWnvqx5Lmdp3UP8Js0rSqQLmf3bt76mAnL-=s900-c-k-c0xffffffff-no-rj-mo"
+        val channelProfileImagePath = CHANNEL_PROFILE_IMAGE
         val title = item.snippet.title
         val thumbnailUrl = item.snippet.thumbnails.standard.url
         val publishedDate = item.snippet.publishedAt.substringBefore('T')
