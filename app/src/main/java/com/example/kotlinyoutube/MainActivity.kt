@@ -1,5 +1,6 @@
 package com.example.kotlinyoutube
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -16,10 +17,9 @@ class MainActivity: AppCompatActivity() {
 
     private lateinit var homeFragment: HomeFragment
 
-    // initialize viewModel
-    private val viewModel: MainViewModel by viewModels()
-
     companion object {
+        var globalDebug = false
+
         // update and put it in .env before publishing the repo
         const val MY_SECRET_API_KEY = "AIzaSyArKlbgIq5WSsDxoo2AFc4JD4qRAiJf1Xs"
 
@@ -58,6 +58,7 @@ class MainActivity: AppCompatActivity() {
     }
 
     // https://stackoverflow.com/questions/24838155/set-onclick-listener-on-action-bar-title-in-android/29823008#29823008
+    @SuppressLint("InflateParams")
     private fun initActionBar(actionBar: ActionBar) {
         // Disable the default and enable the custom
         actionBar.setDisplayShowTitleEnabled(false)

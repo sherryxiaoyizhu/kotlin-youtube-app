@@ -79,7 +79,7 @@ class HomeFragment: Fragment() {
                 // https://stackoverflow.com/questions/57330607/kotlin-runonuithread-unresolved-reference
                 activity?.runOnUiThread {
                     // initialize adapter (initAdapter)
-                    val viewAdapter = HomeAdapter(playlist.items, viewModel)
+                    val viewAdapter = HomeAdapter(videoList, viewModel)
                     recyclerView.apply {
                         adapter = viewAdapter
                         layoutManager = LinearLayoutManager(this.context)

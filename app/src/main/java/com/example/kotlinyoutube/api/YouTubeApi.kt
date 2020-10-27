@@ -21,7 +21,7 @@ import retrofit2.Converter
 
 interface YouTubeApi {
     @GET(PLAYLIST_HTTPS_URL)
-    suspend fun getPosts(): Playlist
+    suspend fun getPlaylist(): Playlist
 
     // Note: This class allows Retrofit to parse items in our model of type SpannableString.
     class SpannableDeserializer : JsonDeserializer<SpannableString> {
@@ -74,7 +74,7 @@ interface YouTubeApi {
     // ** parse Json: HomeFragment **
     class Playlist(val items: List<Video>)
 
-    class Video(val snippet: Snippet)
+    data class Video(val snippet: Snippet)
 
     class Snippet(val publishedAt: String, val title: String, val description: String,
                   val channelTitle: String, val position: Int, val thumbnails: Thumbnails)
