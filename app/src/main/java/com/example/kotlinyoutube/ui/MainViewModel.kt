@@ -3,9 +3,12 @@ package com.example.kotlinyoutube.ui
 import android.util.Log
 import androidx.lifecycle.*
 import com.example.kotlinyoutube.api.OneVideo
+import com.example.kotlinyoutube.api.Repository
 import com.example.kotlinyoutube.api.Video
+import com.example.kotlinyoutube.api.YouTubeApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.lang.System.exit
 import java.text.NumberFormat
 import java.time.LocalDate
 import java.time.ZoneId
@@ -22,19 +25,27 @@ class MainViewModel: ViewModel() {
     }
 
     // initialization
+    private val api = YouTubeApi.create()
+    private val repository = Repository(api)
+
     private var title = MutableLiveData<String>()
-    //private var video = MutableLiveData<String>()
+    private var video = MutableLiveData<String>().apply {
+        value = "Home Page"
+    }
     private val favoriteVideos = MutableLiveData<List<OneVideo>>().apply {
         value = mutableListOf()
     }
 
     private var netVideos = MediatorLiveData<List<Video>>().apply {
-        viewModelScope.launch(
-            context = viewModelScope.coroutineContext
-                    + Dispatchers.IO
-        ) {
-            Log.d("XXX", "HomeFragment().fetchJSON(): "+HomeFragment().fetchJSON().toString())
-            //postValue(HomeFragment().fetchJSON())
+        addSource(video) {
+            viewModelScope.launch(
+                context = viewModelScope.coroutineContext
+                        + Dispatchers.IO
+            ) {
+                Log.d("XXX", "HomeFragment().fetchJSON(): "+HomeFragment().fetchJSON().toString())
+                //postValue(repository.getPlaylist()) // debugging...
+                //exit(0)
+            }
         }
     }
 
@@ -44,8 +55,8 @@ class MainViewModel: ViewModel() {
 
     // refresh to fetch new videos for the playlist
     fun repoFetch() {
-//        val fetch = video.value
-//        video.value = fetch
+        val fetch = video.value
+        video.value = fetch
     }
 
     fun observeVideos(): LiveData<List<Video>> {

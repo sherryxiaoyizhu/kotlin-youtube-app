@@ -1,6 +1,7 @@
 package com.example.kotlinyoutube.ui
 
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import androidx.recyclerview.widget.RecyclerView
 import android.view.View
@@ -18,6 +19,7 @@ class HomeAdapter(video: List<Video>, private val viewModel: MainViewModel)
     private val numVideos = videos.size // number of videos fetched on main view
 
     override fun getItemCount(): Int {
+        Log.d("XXX", "HomeAdapter numVideos = $numVideos")
         return numVideos
     }
 
@@ -28,6 +30,7 @@ class HomeAdapter(video: List<Video>, private val viewModel: MainViewModel)
     }
 
     override fun onBindViewHolder(holder: VH, position: Int) {
+        Log.d("XXX", "holder.adapterPosition in HomeAdapter..." + holder.adapterPosition.toString())
         holder.bind(videos[holder.adapterPosition])
     }
 

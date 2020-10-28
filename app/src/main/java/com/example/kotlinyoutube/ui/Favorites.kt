@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.kotlinyoutube.R
 import com.example.kotlinyoutube.api.OnePlaylist
-import com.example.kotlinyoutube.api.Playlist
 
 class Favorites: Fragment() {
     // initialize viewModel

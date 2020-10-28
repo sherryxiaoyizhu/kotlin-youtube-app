@@ -18,10 +18,12 @@ import com.example.kotlinyoutube.R
 import com.example.kotlinyoutube.api.OneVideo
 import com.example.kotlinyoutube.api.Playlist
 import com.example.kotlinyoutube.api.Video
+import com.example.kotlinyoutube.api.YouTubeApi
 import com.google.gson.GsonBuilder
 import kotlinx.android.synthetic.main.fragment_rv.*
 import okhttp3.*
 import java.io.IOException
+import java.lang.System.exit
 
 class HomeFragment: Fragment() {
 
@@ -76,6 +78,8 @@ class HomeFragment: Fragment() {
                 val playlist = gson.fromJson(body, Playlist::class.java)
                 videoList = playlist.items
 
+                //Log.d("XXX", "videoList = $videoList")
+
                 // https://stackoverflow.com/questions/57330607/kotlin-runonuithread-unresolved-reference
                 activity?.runOnUiThread {
                     // initialize adapter (initAdapter)
@@ -84,7 +88,6 @@ class HomeFragment: Fragment() {
                         adapter = viewAdapter
                         layoutManager = LinearLayoutManager(this.context)
                     }
-                    Log.d("XXX", "...")
                     // observe data change
                     viewModel.observeVideos().observe(viewLifecycleOwner,
                         Observer {
@@ -92,6 +95,7 @@ class HomeFragment: Fragment() {
                             viewAdapter.submitList(it)
                             viewAdapter.notifyDataSetChanged()
                             swipe.isRefreshing = false
+                            //exit(0)
                     })
                 }
             }
