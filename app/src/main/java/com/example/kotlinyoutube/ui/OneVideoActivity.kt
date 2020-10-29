@@ -10,6 +10,8 @@ import com.example.kotlinyoutube.MainActivity.Companion.MY_SECRET_API_KEY
 import com.example.kotlinyoutube.R
 import com.example.kotlinyoutube.api.OnePlaylist
 import com.example.kotlinyoutube.api.OneVideo
+import com.example.kotlinyoutube.ui.HomeAdapter.Companion.VIDEO_ID_KEY
+import com.example.kotlinyoutube.ui.HomeAdapter.Companion.VIDEO_TITLE_KEY
 import com.google.gson.GsonBuilder
 import kotlinx.android.synthetic.main.activity_one_video.*
 import kotlinx.android.synthetic.main.content_one_video_rv.*
@@ -39,11 +41,11 @@ class OneVideoActivity: AppCompatActivity() {
         intent.extras?.apply {
 
             // update ActionBar title
-            val navBarTitle = getString(VH.VIDEO_TITLE_KEY)
+            val navBarTitle = getString(VIDEO_TITLE_KEY)
             supportActionBar?.title = navBarTitle
 
             // get video url
-            val videoId = getString(VH.VIDEO_ID_KEY).toString().substringBefore('/')
+            val videoId = getString(VIDEO_ID_KEY).toString().substringBefore('/')
             val httpUrl = "https://www.googleapis.com/youtube/v3/videos?"+
                     "id=$videoId"+
                     "&key=$MY_SECRET_API_KEY"+

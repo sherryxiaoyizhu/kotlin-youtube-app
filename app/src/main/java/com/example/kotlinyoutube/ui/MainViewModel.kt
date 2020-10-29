@@ -29,28 +29,41 @@ class MainViewModel: ViewModel() {
     private val repository = Repository(api)
 
     private var title = MutableLiveData<String>()
+    private var searchTerm = MutableLiveData<String>()
     private var video = MutableLiveData<String>().apply {
         value = "Home Page"
     }
+
     private val favoriteVideos = MutableLiveData<List<OneVideo>>().apply {
         value = mutableListOf()
     }
 
     private var netVideos = MediatorLiveData<List<Video>>().apply {
-        addSource(video) {
-            viewModelScope.launch(
-                context = viewModelScope.coroutineContext
-                        + Dispatchers.IO
-            ) {
-                Log.d("XXX", "HomeFragment().fetchJSON(): "+HomeFragment().fetchJSON().toString())
-                //postValue(repository.getPlaylist()) // debugging...
-                //exit(0)
+        viewModelScope.launch(
+            context = viewModelScope.coroutineContext
+                    + Dispatchers.IO
+        ) {
+            Log.d("XXX", "repository.getPlaylist(): " + repository.getPlaylist().toString())
+            postValue(repository.getPlaylist()) // debugging...
+        }
+    }
+
+    private var searchVideos = MediatorLiveData<List<Video>>().apply {
+        addSource(netVideos) { netVideos ->
+            value = netVideos.filter {
+                it.searchFor(searchTerm.value ?: "")
             }
         }
     }
 
-    fun setTitle(newTitle: String) {
-        title.value = newTitle
+    init {
+        searchVideos.apply {
+            addSource(searchTerm) { searchTerm ->
+                value = netVideos.value?.filter {
+                    it.searchFor(searchTerm)
+                }
+            }
+        }
     }
 
     // refresh to fetch new videos for the playlist
@@ -59,9 +72,13 @@ class MainViewModel: ViewModel() {
         video.value = fetch
     }
 
+    fun setTitle(newTitle: String) {
+        title.value = newTitle
+    }
+
     fun observeVideos(): LiveData<List<Video>> {
-        Log.d("XXX", "observeVideos() called")
-        return netVideos // searchVideos
+        Log.d("XXX", "observeVideos(): $searchVideos")
+        return searchVideos // searchVideos
     }
 
     fun observeFavorites(): LiveData<List<OneVideo>> {

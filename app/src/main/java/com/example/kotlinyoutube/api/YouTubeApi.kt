@@ -1,8 +1,6 @@
 package com.example.kotlinyoutube.api
 
 import android.text.SpannableString
-import com.example.kotlinyoutube.MainActivity.Companion.PLAYLIST_HTTP_URL
-import com.example.kotlinyoutube.MainActivity.Companion.PLAYLIST_HTTPS_URL
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonDeserializationContext
 import com.google.gson.JsonDeserializer
@@ -20,11 +18,11 @@ import retrofit2.Converter
 import retrofit2.converter.gson.GsonConverterFactory
 
 interface YouTubeApi {
-    @GET(PLAYLIST_HTTPS_URL)
-    suspend fun getPlaylist(): Playlist
+    //@GET(PLAYLIST_HTTPS_URL)
+    //suspend fun getPlaylist(): Playlist
 
-    class Playlist(val items: List<VideoResponse>)
-    data class VideoResponse (val data: Video)
+    //class Playlist(val items: List<VideoResponse>)
+    //data class VideoResponse (val data: Video)
 
     // Note: This class allows Retrofit to parse items in our model of type SpannableString.
     class SpannableDeserializer : JsonDeserializer<SpannableString> {
@@ -64,7 +62,7 @@ interface YouTubeApi {
             return Retrofit.Builder()
                 .baseUrl(httpUrl)
                 .client(client)
-                .addConverterFactory(buildGsonConverterFactory())
+                .addConverterFactory(buildGsonConverterFactory()) //  note the version of okhttp3
                 .build()
                 .create(YouTubeApi::class.java)
         }
