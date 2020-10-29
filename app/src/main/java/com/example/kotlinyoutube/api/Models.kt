@@ -8,7 +8,7 @@ import androidx.core.text.clearSpans
 
 // JSON DATA:
 
-// ** parse Json: MainActivity **
+// ******* parse Json: MainActivity *******
 
 class Playlist(val items: List<Video>) //
 
@@ -53,7 +53,7 @@ data class Video(val snippet: Snippet) {
 class Snippet(val publishedAt: String, val title: SpannableString, val description: String,
               val channelTitle: String, val position: Int, val thumbnails: Thumbnails)
 
-// ** parse Json: OneVideoActivity **
+// ******* parse Json: OneVideoActivity *******
 
 class OnePlaylist(val items: List<OneVideo>)
 
@@ -64,7 +64,7 @@ class OneSnippet(val publishedAt: String, val title: String, val description: St
 
 class Statistics(val viewCount: String, val likeCount: String, val dislikeCount: String, val commentCount: String)
 
-// ** shared models **
+// ******* shared models *******
 
 class Thumbnails(val standard: Standard)
 

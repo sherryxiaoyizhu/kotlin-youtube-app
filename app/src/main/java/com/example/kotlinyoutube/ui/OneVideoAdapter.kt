@@ -9,6 +9,7 @@ import com.example.kotlinyoutube.R
 import com.example.kotlinyoutube.ui.OneVideoActivity.Companion.videoUrl
 import com.example.kotlinyoutube.api.OneVideo
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_one_video.view.*
 import kotlinx.android.synthetic.main.row_one_video.view.*
 
 class OneVideoAdapter(private val oneVideo: List<OneVideo>,
@@ -30,8 +31,7 @@ class OneVideoAdapter(private val oneVideo: List<OneVideo>,
     }
 
     override fun onBindViewHolder(holder: VH, position: Int) {
-        val oneVideo = oneVideo[holder.adapterPosition]
-        holder.bind(oneVideo)
+        holder.bind(oneVideo[holder.adapterPosition])
     }
 
     // set up view holder

@@ -13,18 +13,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.example.kotlinyoutube.MainActivity
-import com.example.kotlinyoutube.MainActivity.Companion.PLAYLIST_HTTP_URL
 import com.example.kotlinyoutube.R
-import com.example.kotlinyoutube.api.OneVideo
-import com.example.kotlinyoutube.api.Playlist
-import com.example.kotlinyoutube.api.Video
-import com.example.kotlinyoutube.api.YouTubeApi
-import com.google.gson.GsonBuilder
-import kotlinx.android.synthetic.main.fragment_rv.*
-import okhttp3.*
-import java.io.IOException
-import java.lang.System.exit
 
 class HomeFragment: Fragment() {
 
@@ -72,59 +61,11 @@ class HomeFragment: Fragment() {
         // observe data change
         viewModel.observeVideos().observe(viewLifecycleOwner,
             Observer {
-                //Log.d("XXX", "observe() called in initAdapter()")
                 viewAdapter.submitList(it)
                 viewAdapter.notifyDataSetChanged()
                 swipe.isRefreshing = false
             })
     }
-
-//    fun fetchJSON(): List<Video> {
-//
-//        var videoList = listOf<Video>()
-//
-//        // get playlist url
-//        val httpurl = PLAYLIST_HTTP_URL
-//        val request = Request.Builder().url(httpurl).build()
-//        val client = OkHttpClient()
-//
-//        client.newCall(request).enqueue(object: Callback {
-//            override fun onResponse(call: Call, response: Response) {
-//                val body = response.body?.string()
-//                //Log.d("XXX", "Json parsed: $body")
-//
-//                val gson = GsonBuilder().create()
-//                val playlist = gson.fromJson(body, Playlist::class.java)
-//                videoList = playlist.items
-//
-//                //Log.d("XXX", "videoList = $videoList")
-//
-//                // https://stackoverflow.com/questions/57330607/kotlin-runonuithread-unresolved-reference
-//                activity?.runOnUiThread {
-//                    // initialize adapter (initAdapter)
-//                    val viewAdapter = HomeAdapter(videoList, viewModel)
-//                    recyclerView.apply {
-//                        adapter = viewAdapter
-//                        layoutManager = LinearLayoutManager(this.context)
-//                    }
-//                    // observe data change
-//                    viewModel.observeVideos().observe(viewLifecycleOwner,
-//                        Observer {
-//                            Log.d("XXX", "observe() called in initAdapter")
-//                            viewAdapter.submitList(it)
-//                            viewAdapter.notifyDataSetChanged()
-//                            swipe.isRefreshing = false
-//                            //exit(0)
-//                    })
-//                }
-//            }
-//
-//            override fun onFailure(call: Call, e: IOException) {
-//                Log.d("XXX", "Failed to execute request")
-//            }
-//        })
-//        return videoList
-//    }
 
     private fun actionFavorite() {
         requireActivity().findViewById<ImageView>(R.id.actionFavorite)

@@ -8,7 +8,6 @@ import com.example.kotlinyoutube.api.Video
 import com.example.kotlinyoutube.api.YouTubeApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.lang.System.exit
 import java.text.NumberFormat
 import java.time.LocalDate
 import java.time.ZoneId

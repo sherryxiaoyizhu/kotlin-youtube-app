@@ -4,14 +4,12 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kotlinyoutube.MainActivity.Companion.MY_SECRET_API_KEY
 import com.example.kotlinyoutube.R
 import com.example.kotlinyoutube.api.OnePlaylist
-import com.example.kotlinyoutube.api.OneVideo
-import com.example.kotlinyoutube.ui.HomeAdapter.Companion.VIDEO_ID_KEY
-import com.example.kotlinyoutube.ui.HomeAdapter.Companion.VIDEO_TITLE_KEY
+import com.example.kotlinyoutube.ui.HomeAdapter.VH.Companion.VIDEO_ID_KEY
+import com.example.kotlinyoutube.ui.HomeAdapter.VH.Companion.VIDEO_TITLE_KEY
 import com.google.gson.GsonBuilder
 import kotlinx.android.synthetic.main.activity_one_video.*
 import kotlinx.android.synthetic.main.content_one_video_rv.*

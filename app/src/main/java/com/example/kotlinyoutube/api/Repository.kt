@@ -41,7 +41,7 @@ class Repository(private val api: YouTubeApi) {
             }
         })
 
-        // wait until gson gets returned ...
+        // Wait until gson gets returned ...
         // https://kotlinlang.org/docs/tutorials/coroutines/async-programming.html
         while (flag == 1) {
             if (flag == 2) {
