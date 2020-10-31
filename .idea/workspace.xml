@@ -15,14 +15,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb720c23-9b72-4185-b5be-83fdb33c61eb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/kotlinyoutube/api/Models.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/kotlinyoutube/api/Models.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/kotlinyoutube/api/Repository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/kotlinyoutube/api/Repository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/kotlinyoutube/ui/HomeAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/kotlinyoutube/ui/HomeAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/kotlinyoutube/ui/HomeFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/kotlinyoutube/ui/HomeFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/kotlinyoutube/ui/MainViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/kotlinyoutube/ui/MainViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_rv.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_rv.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -302,7 +295,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603940760081</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Fix swipe refresh &amp; add search feature">
+      <created>1604184598507</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1604184598508</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -326,7 +326,8 @@
     <MESSAGE value="Update Repository &amp; Debugging" />
     <MESSAGE value="Fix HomeAdapter" />
     <MESSAGE value="Clean up" />
-    <option name="LAST_COMMIT_MESSAGE" value="Clean up" />
+    <MESSAGE value="Fix swipe refresh &amp; add search feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix swipe refresh &amp; add search feature" />
   </component>
   <component name="WindowStateProjectService">
     <state x="458" y="187" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1603934276760">
@@ -355,10 +356,10 @@
       <screen x="0" y="23" width="1440" height="806" />
     </state>
     <state x="308" y="188" key="AndroidCreateResourceFileDialog/0.23.1440.806@0.23.1440.806" timestamp="1603039666115" />
-    <state x="0" y="23" key="CommitChangelistDialog2" timestamp="1603940759934">
+    <state x="0" y="23" key="CommitChangelistDialog2" timestamp="1604184598350">
       <screen x="0" y="23" width="1440" height="804" />
     </state>
-    <state x="0" y="23" key="CommitChangelistDialog2/0.23.1440.804@0.23.1440.804" timestamp="1603940759934" />
+    <state x="0" y="23" key="CommitChangelistDialog2/0.23.1440.804@0.23.1440.804" timestamp="1604184598350" />
     <state x="27" y="28" key="CommitChangelistDialog2/0.23.1440.806@0.23.1440.806" timestamp="1603584431593" />
     <state width="1398" height="611" key="GridCell.Tab.0.bottom" timestamp="1604184084538">
       <screen x="0" y="23" width="1440" height="804" />
@@ -384,10 +385,10 @@
       <screen x="0" y="23" width="1440" height="806" />
     </state>
     <state x="221" y="65" key="SettingsEditor/0.23.1440.806@0.23.1440.806" timestamp="1603572734473" />
-    <state x="320" y="166" key="Vcs.Push.Dialog.v2" timestamp="1603940766293">
+    <state x="320" y="166" key="Vcs.Push.Dialog.v2" timestamp="1604184607499">
       <screen x="0" y="23" width="1440" height="804" />
     </state>
-    <state x="320" y="166" key="Vcs.Push.Dialog.v2/0.23.1440.804@0.23.1440.804" timestamp="1603940766293" />
+    <state x="320" y="166" key="Vcs.Push.Dialog.v2/0.23.1440.804@0.23.1440.804" timestamp="1604184607499" />
     <state x="320" y="166" key="Vcs.Push.Dialog.v2/0.23.1440.806@0.23.1440.806" timestamp="1603584437607" />
     <state x="497" y="211" key="chooseDestDirectoryDialog" timestamp="1602790928528">
       <screen x="0" y="23" width="1440" height="806" />
