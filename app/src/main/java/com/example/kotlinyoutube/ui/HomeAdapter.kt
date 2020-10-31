@@ -48,7 +48,7 @@ class HomeAdapter(private val viewModel: MainViewModel)
                     val title = oneVideo?.snippet?.title
                     val videoId = oneVideo?.snippet?.thumbnails?.standard?.url?.substring(startIdx)
 
-                    putExtra(VIDEO_TITLE_KEY, title)
+                    putExtra(VIDEO_TITLE_KEY, title.toString())
                     putExtra(VIDEO_ID_KEY, videoId)
                 }
                 view.context.startActivity(intent)

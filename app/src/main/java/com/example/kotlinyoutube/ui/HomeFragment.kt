@@ -1,10 +1,13 @@
 package com.example.kotlinyoutube.ui
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
@@ -13,6 +16,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.example.kotlinyoutube.MainActivity
 import com.example.kotlinyoutube.R
 
 class HomeFragment: Fragment() {
@@ -35,8 +39,9 @@ class HomeFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_rv, container, false)
-        initSwipeLayout(root)
         initAdapter(root)
+        initSwipeLayout(root)
+        actionSearch()
         //actionFavorite()
         return root
     }
@@ -64,6 +69,24 @@ class HomeFragment: Fragment() {
                 viewAdapter.submitList(it)
                 viewAdapter.notifyDataSetChanged()
                 swipe.isRefreshing = false
+            })
+    }
+
+    private fun actionSearch() {
+        requireActivity().findViewById<EditText>(R.id.actionSearch)
+            .addTextChangedListener(object: TextWatcher {
+                override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                    if (s != null) {
+                        if (s.isEmpty()) {
+                            (activity as MainActivity).hideKeyboard()
+                        }
+                    }
+                    viewModel.setSearchTerm(s.toString())
+                }
+
+                override fun afterTextChanged(p0: Editable?) {}
             })
     }
 

@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
+import android.util.Log
 import androidx.core.text.clearSpans
 
 // JSON DATA:
@@ -37,6 +38,7 @@ data class Video(val snippet: Snippet) {
         removeAllCurrentSpans()
 
         // search for titles
+        Log.d("XXX searchTerm", searchTerm)
         return setSpan(snippet.title, searchTerm)
     }
 
@@ -48,6 +50,10 @@ data class Video(val snippet: Snippet) {
         } else {
             false
         }
+
+    override fun hashCode(): Int {
+        return snippet.hashCode()
+    }
 }
 
 class Snippet(val publishedAt: String, val title: SpannableString, val description: String,

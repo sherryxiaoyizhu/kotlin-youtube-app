@@ -4,6 +4,7 @@ import android.text.SpannableString
 import android.util.Log
 import com.example.kotlinyoutube.MainActivity
 import com.google.gson.GsonBuilder
+import kotlinx.coroutines.delay
 import okhttp3.*
 import java.io.IOException
 
@@ -21,7 +22,7 @@ class Repository(private val api: YouTubeApi) {
         return response.items
     }
 
-    fun getPlaylist(): List<Video> {
+    suspend fun getPlaylist(): List<Video> {
 
         val httpurl = MainActivity.PLAYLIST_HTTP_URL
         val request = Request.Builder().url(httpurl).build()
@@ -43,11 +44,8 @@ class Repository(private val api: YouTubeApi) {
 
         // Wait until gson gets returned ...
         // https://kotlinlang.org/docs/tutorials/coroutines/async-programming.html
-        while (flag == 1) {
-            if (flag == 2) {
-                break
-            }
-        }
+        // https://kotlinlang.org/docs/reference/coroutines/composing-suspending-functions.html
+        delay(1000L)
         return unpackVideos(playlist)
     }
 }
