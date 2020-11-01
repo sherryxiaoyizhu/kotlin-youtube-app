@@ -42,7 +42,7 @@ class HomeFragment: Fragment() {
         initAdapter(root)
         initSwipeLayout(root)
         actionSearch()
-        //actionFavorite()
+        actionFavorite()
         return root
     }
 
@@ -51,12 +51,11 @@ class HomeFragment: Fragment() {
         swipe.isRefreshing = true
         swipe.setOnRefreshListener {
             swipe.isRefreshing = true
-            viewModel.repoFetch() // debugging...
+            viewModel.repoFetch()
         }
     }
 
     private fun initAdapter(root: View) {
-
         val viewAdapter = HomeAdapter(viewModel)
         root.findViewById<RecyclerView>(R.id.recyclerView).apply {
             adapter = viewAdapter

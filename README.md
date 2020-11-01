@@ -9,7 +9,9 @@ KotlinYouTube is an Android mobile application that renders hit music videos by 
 - Fetch videos from the playlist, display thumbnail image, video title, channel profile image, number of views, and published time from the network through YouTube Data API
 - Swipe to refresh the video playlist
 - Users to enter search text, filter videos in the playlist, and highlight the search terms
-- Click on the video (random piece) and redirect to one video view
+- Click on favorite button in the video list to add videos to favorite list
+- Click on favorite button (upper right corner) to see real-time favorite list
+- Click on the video thumbnail to redirect to one video view
 
 #### Video Detail Page
 

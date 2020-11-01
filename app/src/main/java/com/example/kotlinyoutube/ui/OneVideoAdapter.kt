@@ -21,7 +21,7 @@ class OneVideoAdapter(private val oneVideo: List<OneVideo>,
     }
 
     override fun getItemCount(): Int {
-        return 1 // fetch one video
+        return 1 // fetch one video detail
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
@@ -43,19 +43,6 @@ class OneVideoAdapter(private val oneVideo: List<OneVideo>,
                     putExtra(WEB_URL_KEY, videoUrl)
                 }
                 view.context.startActivity(intent)
-            }
-
-            // enable favorite feature in favorites (and main..) fragment
-            itemView.rowFav.setOnClickListener {
-                val item= oneVideo[adapterPosition]
-                if (viewModel.isFavorite(item)) {
-                    viewModel.removeFavorite(item)
-                    itemView.rowFav.setImageResource(R.drawable.ic_favorite_border_black_24dp)
-
-                } else {
-                    viewModel.addFavorite(item)
-                    itemView.rowFav.setImageResource(R.drawable.ic_favorite_black_24dp)
-                }
             }
         }
 
@@ -81,13 +68,6 @@ class OneVideoAdapter(private val oneVideo: List<OneVideo>,
             view.likeCountTV.text = viewModel.getShortScale(likesCount)
             view.commentsCount.text = viewModel.getShortScale(commentsCount)
             view.oneVideoDescriptionTV.text = description
-
-            // favorite button in one video fragment
-            if (viewModel.isFavorite(item)) {
-                itemView.rowFav.setImageResource(R.drawable.ic_favorite_black_24dp)
-            } else {
-                itemView.rowFav.setImageResource(R.drawable.ic_favorite_border_black_24dp)
-            }
         }
     }
 }

@@ -12,7 +12,6 @@ class Repository(private val api: YouTubeApi) {
 
     companion object {
         var playlist = Playlist(listOf())
-        var flag = 1 // async flag
     }
 
     var gson = GsonBuilder().registerTypeAdapter(
@@ -34,7 +33,6 @@ class Repository(private val api: YouTubeApi) {
                 val body = response.body?.string()
                 //Log.d("XXX", "Json parsed: $body")
                 playlist = gson.fromJson(body, Playlist::class.java)
-                flag = 2
             }
 
             override fun onFailure(call: Call, e: IOException) {

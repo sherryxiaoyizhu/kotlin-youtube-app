@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.kotlinyoutube.R
-import com.example.kotlinyoutube.api.OnePlaylist
 
 class Favorites: Fragment() {
     // initialize viewModel
@@ -31,8 +30,9 @@ class Favorites: Fragment() {
     ): View? {
         // update the tool bar title
         viewModel.setTitle("Favorites")
+
         // inflate fragment recycler view
-        val root = inflater.inflate(R.layout.content_one_video_rv, container, false)
+        val root = inflater.inflate(R.layout.fragment_rv, container, false)
         root.findViewById<SwipeRefreshLayout>(R.id.swipeRefreshLayout).isEnabled = false
         initAdapter(root)
 
@@ -46,16 +46,15 @@ class Favorites: Fragment() {
 
     // Set up the adapter
     private fun initAdapter(root: View) {
-//        val playlist: Playlist
-//        val viewAdapter = HomeAdapter(playlist, viewModel)
-//        root.findViewById<RecyclerView>(R.id.recyclerView).apply {
-//            adapter = viewAdapter
-//            layoutManager = LinearLayoutManager(root.context)
-//        }
-//
-//        viewModel.observeFavorites().observe(viewLifecycleOwner, Observer {
-//            //viewAdapter.submitList(it)
-//            viewAdapter.notifyDataSetChanged()
-//        })
+        val viewAdapter = HomeAdapter(viewModel)
+        root.findViewById<RecyclerView>(R.id.recyclerView).apply {
+            adapter = viewAdapter
+            layoutManager = LinearLayoutManager(root.context)
+        }
+
+        viewModel.observeFavorites().observe(viewLifecycleOwner, Observer {
+            viewAdapter.submitList(it)
+            viewAdapter.notifyDataSetChanged()
+        })
     }
 }

@@ -11,6 +11,7 @@ import com.example.kotlinyoutube.R
 import com.example.kotlinyoutube.api.Video
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.row_main.view.*
+import kotlinx.android.synthetic.main.row_one_video.view.*
 
 class HomeAdapter(private val viewModel: MainViewModel)
     : RecyclerView.Adapter<HomeAdapter.VH>() {
@@ -42,7 +43,7 @@ class HomeAdapter(private val viewModel: MainViewModel)
 
         init {
             // pass data from main view to one video view through intent
-            view.setOnClickListener {
+            view.videoImageView.setOnClickListener {
                 val intent = Intent(view.context, OneVideoActivity::class.java).apply {
                     val startIdx = "https://i.ytimg.com/vi/".length
                     val title = oneVideo?.snippet?.title
@@ -52,6 +53,19 @@ class HomeAdapter(private val viewModel: MainViewModel)
                     putExtra(VIDEO_ID_KEY, videoId)
                 }
                 view.context.startActivity(intent)
+            }
+
+            // enable favorite feature in home fragment
+            view.favBut.setOnClickListener {
+                val item = oneVideo!!
+                if (viewModel.isFavorite(item)) {
+                    viewModel.removeFavorite(item)
+                    itemView.favBut.setImageResource(R.drawable.ic_favorite_border_black_24dp)
+
+                } else {
+                    viewModel.addFavorite(item)
+                    itemView.favBut.setImageResource(R.drawable.ic_favorite_black_24dp)
+                }
             }
         }
 
@@ -78,6 +92,13 @@ class HomeAdapter(private val viewModel: MainViewModel)
 
             // to pass video details through intent
             oneVideo = item
+
+            // favorite button in home fragment
+            if (viewModel.isFavorite(item)) {
+                itemView.favBut.setImageResource(R.drawable.ic_favorite_black_24dp)
+            } else {
+                itemView.favBut.setImageResource(R.drawable.ic_favorite_border_black_24dp)
+            }
         }
     }
 

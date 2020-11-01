@@ -33,7 +33,7 @@ class MainViewModel: ViewModel() {
         value = "Home"
     }
 
-    private val favoriteVideos = MutableLiveData<List<OneVideo>>().apply {
+    private val favoriteVideos = MutableLiveData<List<Video>>().apply {
         value = mutableListOf()
     }
 
@@ -62,8 +62,22 @@ class MainViewModel: ViewModel() {
         }
     }
 
+    private var searchFavorites = MediatorLiveData<List<Video>>().apply {
+        addSource(favoriteVideos) { favoriteVideos ->
+            value = favoriteVideos.filter {
+                it.searchFor(searchTerm.value ?: "")
+            }
+        }
+    }
+
     init {
-        // ...
+        searchFavorites.apply {
+            addSource(searchTerm) { searchTerm ->
+                value = favoriteVideos.value?.filter {
+                    it.searchFor(searchTerm)
+                }
+            }
+        }
     }
 
     // swipe refresh to fetch new videos for the playlist
@@ -85,15 +99,15 @@ class MainViewModel: ViewModel() {
         return searchVideos
     }
 
-    fun observeFavorites(): LiveData<List<OneVideo>> {
-        return favoriteVideos // searchFavorites
+    fun observeFavorites(): LiveData<List<Video>> {
+        return searchFavorites
     }
 
-    fun isFavorite(video: OneVideo): Boolean {
+    fun isFavorite(video: Video): Boolean {
         return favoriteVideos.value?.contains(video)!!
     }
 
-    fun addFavorite(video: OneVideo) {
+    fun addFavorite(video: Video) {
         val favList = favoriteVideos.value?.toMutableList()
         if (!favList?.contains(video)!!) {
             favList.add(video)
@@ -101,7 +115,7 @@ class MainViewModel: ViewModel() {
         }
     }
 
-    fun removeFavorite(video: OneVideo) {
+    fun removeFavorite(video: Video) {
         val favList = favoriteVideos.value?.toMutableList()
         if (favList?.contains(video)!!) {
             favList.remove(video)
