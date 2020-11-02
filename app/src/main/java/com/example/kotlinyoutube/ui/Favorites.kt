@@ -39,6 +39,7 @@ class Favorites: Fragment() {
         // back button
         requireActivity().onBackPressedDispatcher
             .addCallback(this) {
+                viewModel.setTitleToHome()
                 parentFragmentManager.popBackStack()
             }
         return root

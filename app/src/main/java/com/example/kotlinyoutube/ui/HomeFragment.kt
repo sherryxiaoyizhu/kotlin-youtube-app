@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.activityViewModels
@@ -40,19 +41,11 @@ class HomeFragment: Fragment() {
     ): View? {
         val root = inflater.inflate(R.layout.fragment_rv, container, false)
         initAdapter(root)
+        initTitleObservers()
         initSwipeLayout(root)
         actionSearch()
         actionFavorite()
         return root
-    }
-
-    private fun initSwipeLayout(root: View) {
-        swipe = root.findViewById(R.id.swipeRefreshLayout)
-        swipe.isRefreshing = true
-        swipe.setOnRefreshListener {
-            swipe.isRefreshing = true
-            viewModel.repoFetch()
-        }
     }
 
     private fun initAdapter(root: View) {
@@ -69,6 +62,25 @@ class HomeFragment: Fragment() {
                 viewAdapter.notifyDataSetChanged()
                 swipe.isRefreshing = false
             })
+    }
+
+    private fun setTitle(newTitle: String) {
+        requireActivity().findViewById<TextView>(R.id.actionTitle).text = newTitle
+    }
+
+    private fun initTitleObservers() {
+        viewModel.observeTitle().observe(viewLifecycleOwner, Observer { title: String ->
+            setTitle(title)
+        })
+    }
+
+    private fun initSwipeLayout(root: View) {
+        swipe = root.findViewById(R.id.swipeRefreshLayout)
+        swipe.isRefreshing = true
+        swipe.setOnRefreshListener {
+            swipe.isRefreshing = true
+            viewModel.repoFetch()
+        }
     }
 
     private fun actionSearch() {

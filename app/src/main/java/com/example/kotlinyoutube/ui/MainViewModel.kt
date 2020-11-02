@@ -94,6 +94,14 @@ class MainViewModel: ViewModel() {
         title.value = newTitle
     }
 
+    fun setTitleToHome() {
+        title.value = "KotlinYouTube"
+    }
+
+    fun observeTitle(): LiveData<String> {
+        return title
+    }
+
     fun observeVideos(): LiveData<List<Video>> {
         Log.d("XXX", "observeVideos(): $searchVideos")
         return searchVideos

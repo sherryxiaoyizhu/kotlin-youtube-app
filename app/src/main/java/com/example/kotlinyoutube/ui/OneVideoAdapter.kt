@@ -4,12 +4,15 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlinyoutube.R
 import com.example.kotlinyoutube.ui.OneVideoActivity.Companion.videoUrl
 import com.example.kotlinyoutube.api.OneVideo
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_one_video.view.*
+import kotlinx.android.synthetic.main.row_main.view.*
 import kotlinx.android.synthetic.main.row_one_video.view.*
 
 class OneVideoAdapter(private val oneVideo: List<OneVideo>,
@@ -18,6 +21,8 @@ class OneVideoAdapter(private val oneVideo: List<OneVideo>,
 
     companion object {
         const val WEB_URL_KEY = "WEB_URL"
+        //var WEB_URL_KEY = ""
+        //var newWebFrag = WebViewActivity.newInstance()
     }
 
     override fun getItemCount(): Int {
@@ -38,9 +43,12 @@ class OneVideoAdapter(private val oneVideo: List<OneVideo>,
     inner class VH(val view: View, val viewModel: MainViewModel): RecyclerView.ViewHolder(view) {
 
         init {
+
             view.videoDetailImageView.setOnClickListener {
                 val intent = Intent(view.context, WebViewActivity::class.java).apply {
                     putExtra(WEB_URL_KEY, videoUrl)
+                    //newWebFrag = WebViewActivity.newInstance()
+                    //WEB_URL_KEY = videoUrl
                 }
                 view.context.startActivity(intent)
             }
@@ -52,6 +60,7 @@ class OneVideoAdapter(private val oneVideo: List<OneVideo>,
             val viewCount = item.statistics.viewCount
             val publishedDate = item.snippet.publishedAt.substringBefore('T')
             val likesCount = item.statistics.likeCount
+            val dislikesCount = item.statistics.dislikeCount
             val commentsCount = item.statistics.commentCount
             val description = item.snippet.description
 
@@ -66,6 +75,7 @@ class OneVideoAdapter(private val oneVideo: List<OneVideo>,
             val time = viewModel.getTimeAgo(viewModel.stringToDate(publishedDate))
             view.viewCount_publishedAt_TV.text = "$views views • $time"
             view.likeCountTV.text = viewModel.getShortScale(likesCount)
+            view.dislikeCountTV.text = viewModel.getShortScale(dislikesCount)
             view.commentsCount.text = viewModel.getShortScale(commentsCount)
             view.oneVideoDescriptionTV.text = description
         }

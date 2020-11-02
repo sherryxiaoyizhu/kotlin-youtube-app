@@ -15,7 +15,7 @@ KotlinYouTube is an Android mobile application that renders hit music videos by 
 
 #### Video Detail Page
 
-- Fetch and display video title (ellipsize in the action bar), thumbnail image, number views, published time, number of likes, number of comments from the network through YouTube Data API
+- Fetch and display video title (ellipsize in the action bar), thumbnail image, number views, published time, number of likes/ dislikes, number of comments from the network through YouTube Data API
 - Show video description in ScrollView
 - Click on the video thumbnail and redirect to a WebView
 
