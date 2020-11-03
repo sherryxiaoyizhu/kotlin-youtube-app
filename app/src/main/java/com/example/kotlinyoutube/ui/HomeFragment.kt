@@ -24,7 +24,6 @@ class HomeFragment: Fragment() {
 
     private lateinit var swipe: SwipeRefreshLayout
     private val favoritesFragTag = "favoritesFragTag"
-    private val videosFragTag = "videosFragTag"
 
     private val viewModel: MainViewModel by activityViewModels()
 

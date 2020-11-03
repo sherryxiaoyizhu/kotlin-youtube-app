@@ -21,8 +21,6 @@ class OneVideoAdapter(private val oneVideo: List<OneVideo>,
 
     companion object {
         const val WEB_URL_KEY = "WEB_URL"
-        //var WEB_URL_KEY = ""
-        //var newWebFrag = WebViewActivity.newInstance()
     }
 
     override fun getItemCount(): Int {
@@ -43,14 +41,12 @@ class OneVideoAdapter(private val oneVideo: List<OneVideo>,
     inner class VH(val view: View, val viewModel: MainViewModel): RecyclerView.ViewHolder(view) {
 
         init {
-
-            view.videoDetailImageView.setOnClickListener {
+            view.videoDetailImageView.setOnLongClickListener {
                 val intent = Intent(view.context, WebViewActivity::class.java).apply {
                     putExtra(WEB_URL_KEY, videoUrl)
-                    //newWebFrag = WebViewActivity.newInstance()
-                    //WEB_URL_KEY = videoUrl
                 }
                 view.context.startActivity(intent)
+                true
             }
         }
 

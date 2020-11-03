@@ -4,13 +4,10 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentTransaction
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.kotlinyoutube.ui.HomeFragment
-import com.example.kotlinyoutube.ui.MainViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity: AppCompatActivity() {
