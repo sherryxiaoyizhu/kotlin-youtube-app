@@ -72,6 +72,6 @@ class Statistics(val viewCount: String, val likeCount: String, val dislikeCount:
 
 // ******* shared models *******
 
-class Thumbnails(val standard: Standard)
+class Thumbnails(val high: High)
 
-class Standard(val url: String)
+class High(val url: String)

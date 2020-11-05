@@ -47,7 +47,7 @@ class HomeAdapter(private val viewModel: MainViewModel)
                 val intent = Intent(view.context, OneVideoActivity::class.java).apply {
                     val startIdx = "https://i.ytimg.com/vi/".length
                     val title = oneVideo?.snippet?.title
-                    val videoId = oneVideo?.snippet?.thumbnails?.standard?.url?.substring(startIdx)
+                    val videoId = oneVideo?.snippet?.thumbnails?.high?.url?.substring(startIdx)
 
                     putExtra(VIDEO_TITLE_KEY, title.toString())
                     putExtra(VIDEO_ID_KEY, videoId)
@@ -73,7 +73,7 @@ class HomeAdapter(private val viewModel: MainViewModel)
             // fetch data
             val channelProfileImagePath = CHANNEL_PROFILE_IMAGE
             val title = item.snippet.title
-            val thumbnailUrl = item.snippet.thumbnails.standard.url
+            val thumbnailUrl = item.snippet.thumbnails.high.url
             val publishedDate = item.snippet.publishedAt.substringBefore('T')
             val displayTime = viewModel.getTimeAgo(viewModel.stringToDate(publishedDate))
             val displayText = item.snippet.channelTitle + " • $displayTime"

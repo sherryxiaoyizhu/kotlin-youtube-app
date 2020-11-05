@@ -52,7 +52,7 @@ class OneVideoAdapter(private val oneVideo: List<OneVideo>,
 
         fun bind(item: OneVideo) {
             // fetch data
-            val thumbnailUrl = item.snippet.thumbnails.standard.url
+            val thumbnailUrl = item.snippet.thumbnails.high.url
             val viewCount = item.statistics.viewCount
             val publishedDate = item.snippet.publishedAt.substringBefore('T')
             val likesCount = item.statistics.likeCount
