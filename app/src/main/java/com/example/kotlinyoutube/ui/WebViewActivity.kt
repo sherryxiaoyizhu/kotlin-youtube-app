@@ -2,6 +2,9 @@ package com.example.kotlinyoutube.ui
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.webkit.PermissionRequest
+import android.webkit.WebChromeClient
+import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
 import com.example.kotlinyoutube.R
@@ -20,15 +23,26 @@ class WebViewActivity: AppCompatActivity() {
         // display ActionBar back button
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        webview.settings.javaScriptEnabled = true
-        webview.settings.loadWithOverviewMode = true
-        webview.settings.useWideViewPort = true
-
-        // https://stackoverflow.com/questions/7746409/android-webview-launches-browser-when-calling-loadurl
-        webview.setWebViewClient(WebViewClient())
-
         // load web url
         val url = intent.extras?.getString(WEB_URL_KEY)
-        webview.loadUrl(url)
+
+        val webView = findViewById<WebView>(R.id.webview)
+        webView.settings.javaScriptEnabled = true
+        webView.settings.loadWithOverviewMode = true
+        webView.settings.useWideViewPort = true
+
+        // https://stackoverflow.com/questions/47872078/how-to-load-an-url-inside-a-webview-using-android-kotlin
+        webView.webViewClient = object : WebViewClient() {
+            override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
+                view?.loadUrl(url)
+                return true
+            }
+        }
+        webView.setWebChromeClient(object : WebChromeClient() {
+            override fun onPermissionRequest(request: PermissionRequest) {
+                request.grant(request.resources)
+            }
+        })
+        webView.loadUrl(url)
     }
 }
