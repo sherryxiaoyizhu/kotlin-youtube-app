@@ -1,6 +1,7 @@
 package com.example.kotlinyoutube.ui
 
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlinyoutube.R
 import com.example.kotlinyoutube.ui.OneVideoActivity.Companion.videoUrl
 import com.example.kotlinyoutube.api.OneVideo
+import com.example.kotlinyoutube.ui.OneVideoActivity.Companion.videoId
+import com.google.android.youtube.player.YouTubePlayer
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_one_video.view.*
 import kotlinx.android.synthetic.main.row_main.view.*
@@ -21,6 +24,7 @@ class OneVideoAdapter(private val oneVideo: List<OneVideo>,
 
     companion object {
         const val WEB_URL_KEY = "WEB_URL"
+        const val VIDEO_ID_KEY = "VIDEO_ID"
     }
 
     override fun getItemCount(): Int {
@@ -48,6 +52,15 @@ class OneVideoAdapter(private val oneVideo: List<OneVideo>,
                 view.context.startActivity(intent)
                 true
             }
+//            view.videoDetailImageView.setOnLongClickListener {
+//                Log.d("XXX", "videoDetailImageView clicked 1...")
+//                val intent = Intent(view.context, YouTubeMediaPlayer::class.java).apply {
+//                    putExtra(VIDEO_ID_KEY, videoId)
+//                }
+//                Log.d("XXX", "videoDetailImageView clicked 2...")
+//                view.context.startActivity(intent)
+//                true
+//            }
         }
 
         fun bind(item: OneVideo) {

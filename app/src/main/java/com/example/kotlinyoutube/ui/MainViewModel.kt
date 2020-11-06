@@ -103,7 +103,6 @@ class MainViewModel: ViewModel() {
     }
 
     fun observeVideos(): LiveData<List<Video>> {
-        Log.d("XXX", "observeVideos(): $searchVideos")
         return searchVideos
     }
 

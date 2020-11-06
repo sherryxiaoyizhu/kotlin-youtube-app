@@ -23,6 +23,7 @@ class OneVideoActivity: AppCompatActivity() {
 
     companion object {
         var videoUrl = ""
+        var videoId = ""
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,7 +44,7 @@ class OneVideoActivity: AppCompatActivity() {
             supportActionBar?.title = navBarTitle
 
             // get video url
-            val videoId = getString(VIDEO_ID_KEY).toString().substringBefore('/')
+            videoId = getString(VIDEO_ID_KEY).toString().substringBefore('/')
             val httpUrl = "https://www.googleapis.com/youtube/v3/videos?"+
                     "id=$videoId"+
                     "&key=$MY_SECRET_API_KEY"+
