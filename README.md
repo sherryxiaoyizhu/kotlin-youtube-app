@@ -6,6 +6,7 @@ KotlinYouTube is an Android mobile application that renders hit music videos by 
 
 #### Home
 
+- Users to sign in with email and password to see the home page
 - Fetch videos from a YouTube video playlist, display thumbnail image, video title, channel profile image, channel name, and published time from the network through YouTube Data API
 - Swipe to refresh the video playlist
 - Users to enter search term and filter videos in the playlist, search terms will be highlighted in blue
@@ -41,6 +42,7 @@ KotlinYouTube is an Android mobile application that renders hit music videos by 
 
 #### Libraries
 
+- [Firebase](https://firebase.google.com/) - a platform developed by Google for creating mobile and web applications
 - [Retrofit](https://square.github.io/retrofit/) - turns HTTP API into a Java interface
 - [OkHttp](https://square.github.io/okhttp/) - an HTTP client for Android and Java applications
 - [Gson](https://guides.codepath.com/android/leveraging-the-gson-library) - provides a powerful framework for converting between JSON strings and Java objects

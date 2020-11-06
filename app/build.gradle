@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 29
@@ -80,6 +81,16 @@ dependencies {
     implementation 'com.android.support:support-v4:25.3.1'
     // Fragment
     implementation "androidx.fragment:fragment-ktx:1.2.5"
+
+    // firebase libraries
+    implementation "com.firebaseui:firebase-ui-auth:6.2.0"
+    implementation "com.google.firebase:firebase-analytics:18.0.0"
+    implementation "com.google.firebase:firebase-auth:20.0.0"
+
+    implementation platform('com.google.firebase:firebase-bom:25.12.0')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-auth-ktx'
+    implementation 'com.google.firebase:firebase-firestore-ktx'
 
     // integrate 3rd party libraries
     implementation "com.squareup.okhttp3:okhttp:4.9.0"
