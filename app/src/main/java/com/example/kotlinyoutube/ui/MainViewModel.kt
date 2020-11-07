@@ -2,7 +2,6 @@ package com.example.kotlinyoutube.ui
 
 import android.util.Log
 import androidx.lifecycle.*
-import com.example.kotlinyoutube.api.OneVideo
 import com.example.kotlinyoutube.api.Repository
 import com.example.kotlinyoutube.api.Video
 import com.example.kotlinyoutube.api.YouTubeApi

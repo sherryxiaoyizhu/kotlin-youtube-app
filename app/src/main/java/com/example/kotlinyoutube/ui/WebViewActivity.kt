@@ -8,9 +8,8 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
 import com.example.kotlinyoutube.R
-import com.example.kotlinyoutube.ui.OneVideoAdapter.Companion.WEB_URL_KEY
+import com.example.kotlinyoutube.ui.OneVideoActivity.Companion.WEB_URL_KEY
 import kotlinx.android.synthetic.main.activity_webview.*
-import kotlinx.android.synthetic.main.content_webview.*
 
 class WebViewActivity: AppCompatActivity() {
 

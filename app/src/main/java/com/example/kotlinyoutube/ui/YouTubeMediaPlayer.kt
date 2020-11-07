@@ -5,11 +5,10 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.kotlinyoutube.MainActivity.Companion.MY_SECRET_API_KEY
 import com.example.kotlinyoutube.R
-import com.example.kotlinyoutube.ui.OneVideoAdapter.Companion.VIDEO_ID_KEY
+import com.example.kotlinyoutube.ui.HomeAdapter.VH.Companion.VIDEO_ID_KEY
 import com.google.android.youtube.player.YouTubeInitializationResult
 import com.google.android.youtube.player.YouTubePlayer
 import com.google.android.youtube.player.YouTubePlayerFragment
-import com.google.android.youtube.player.YouTubePlayerSupportFragment
 import kotlinx.android.synthetic.main.activity_webview.*
 
 class YouTubeMediaPlayer: AppCompatActivity() {

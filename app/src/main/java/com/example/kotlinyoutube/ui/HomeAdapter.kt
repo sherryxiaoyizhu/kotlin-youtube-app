@@ -11,7 +11,7 @@ import com.example.kotlinyoutube.R
 import com.example.kotlinyoutube.api.Video
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.row_main.view.*
-import kotlinx.android.synthetic.main.row_one_video.view.*
+import kotlinx.android.synthetic.main.content_one_video.view.*
 
 class HomeAdapter(private val viewModel: MainViewModel)
     : RecyclerView.Adapter<HomeAdapter.VH>() {
