@@ -14,17 +14,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb720c23-9b72-4185-b5be-83fdb33c61eb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-anydpi/ic_back_arrow_white_24dp.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-anydpi/ic_youtube_search_black_24dp.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_back_arrow_white_24dp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_youtube_search_black_24dp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_back_arrow_white_24dp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_youtube_search_black_24dp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_back_arrow_white_24dp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_youtube_search_black_24dp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_back_arrow_white_24dp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_youtube_search_black_24dp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_youtube_player.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/kotlinyoutube/ui/HomeAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/kotlinyoutube/ui/HomeAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/kotlinyoutube/ui/MainViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/kotlinyoutube/ui/MainViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/kotlinyoutube/ui/OneVideoActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/kotlinyoutube/ui/OneVideoActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/kotlinyoutube/ui/OneVideoAdapter.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/kotlinyoutube/ui/OneVideoActivity.kt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/kotlinyoutube/ui/WebViewActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/kotlinyoutube/ui/WebViewActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/kotlinyoutube/ui/YouTubeMediaPlayer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/kotlinyoutube/ui/YouTubeMediaPlayer.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_one_video.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_one_video.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_one_video_rv.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/row_one_video.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_one_video.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_one_video.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_one_video.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_youtube_player.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_youtube_player.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -459,12 +472,18 @@
       <option name="project" value="LOCAL" />
       <updated>1604691361281</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Remove OneVideoAdapter">
+      <created>1604773380757</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1604773380757</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Update VideoActivity" />
     <MESSAGE value="Update layout" />
     <MESSAGE value="Refactoring" />
     <MESSAGE value="Add WebView" />
@@ -489,7 +508,8 @@
     <MESSAGE value="Fix thumbnail bug" />
     <MESSAGE value="Add Firebase user authentication" />
     <MESSAGE value="Add YouTubeAndroidPlayerApi" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add YouTubeAndroidPlayerApi" />
+    <MESSAGE value="Remove OneVideoAdapter" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove OneVideoAdapter" />
   </component>
   <component name="WindowStateProjectService">
     <state x="458" y="187" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1603934276760">
@@ -505,10 +525,10 @@
       <screen x="0" y="23" width="1440" height="806" />
     </state>
     <state x="408" y="169" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.1440.806@0.23.1440.806" timestamp="1603646240048" />
-    <state x="458" y="180" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1604772656254">
+    <state x="458" y="180" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1604802066992">
       <screen x="0" y="23" width="1440" height="804" />
     </state>
-    <state x="458" y="180" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.804@0.23.1440.804" timestamp="1604772656254" />
+    <state x="458" y="180" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.804@0.23.1440.804" timestamp="1604802066992" />
     <state x="458" y="180" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.806@0.23.1440.806" timestamp="1603044091881" />
     <state x="477" y="210" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog" timestamp="1603658564926">
       <screen x="0" y="23" width="1440" height="804" />
@@ -518,39 +538,39 @@
       <screen x="0" y="23" width="1440" height="806" />
     </state>
     <state x="308" y="188" key="AndroidCreateResourceFileDialog/0.23.1440.806@0.23.1440.806" timestamp="1603039666115" />
-    <state x="112" y="23" key="CommitChangelistDialog2" timestamp="1604691360988">
+    <state x="112" y="23" key="CommitChangelistDialog2" timestamp="1604773380573">
       <screen x="0" y="23" width="1440" height="804" />
     </state>
-    <state x="112" y="23" key="CommitChangelistDialog2/0.23.1440.804@0.23.1440.804" timestamp="1604691360988" />
+    <state x="112" y="23" key="CommitChangelistDialog2/0.23.1440.804@0.23.1440.804" timestamp="1604773380573" />
     <state x="27" y="28" key="CommitChangelistDialog2/0.23.1440.806@0.23.1440.806" timestamp="1603584431593" />
-    <state width="1398" height="552" key="GridCell.Tab.0.bottom" timestamp="1604773257929">
+    <state width="1398" height="552" key="GridCell.Tab.0.bottom" timestamp="1604802202057">
       <screen x="0" y="23" width="1440" height="804" />
     </state>
-    <state width="1398" height="552" key="GridCell.Tab.0.bottom/0.23.1440.804@0.23.1440.804" timestamp="1604773257929" />
+    <state width="1398" height="552" key="GridCell.Tab.0.bottom/0.23.1440.804@0.23.1440.804" timestamp="1604802202057" />
     <state width="1398" height="613" key="GridCell.Tab.0.bottom/0.23.1440.806@0.23.1440.806" timestamp="1603647477377" />
-    <state width="1398" height="552" key="GridCell.Tab.0.center" timestamp="1604773257928">
+    <state width="1398" height="552" key="GridCell.Tab.0.center" timestamp="1604802202056">
       <screen x="0" y="23" width="1440" height="804" />
     </state>
-    <state width="1398" height="552" key="GridCell.Tab.0.center/0.23.1440.804@0.23.1440.804" timestamp="1604773257928" />
+    <state width="1398" height="552" key="GridCell.Tab.0.center/0.23.1440.804@0.23.1440.804" timestamp="1604802202056" />
     <state width="1398" height="613" key="GridCell.Tab.0.center/0.23.1440.806@0.23.1440.806" timestamp="1603647477377" />
-    <state width="1398" height="552" key="GridCell.Tab.0.left" timestamp="1604773257928">
+    <state width="1398" height="552" key="GridCell.Tab.0.left" timestamp="1604802202056">
       <screen x="0" y="23" width="1440" height="804" />
     </state>
-    <state width="1398" height="552" key="GridCell.Tab.0.left/0.23.1440.804@0.23.1440.804" timestamp="1604773257928" />
+    <state width="1398" height="552" key="GridCell.Tab.0.left/0.23.1440.804@0.23.1440.804" timestamp="1604802202056" />
     <state width="1398" height="613" key="GridCell.Tab.0.left/0.23.1440.806@0.23.1440.806" timestamp="1603647477377" />
-    <state width="1398" height="552" key="GridCell.Tab.0.right" timestamp="1604773257928">
+    <state width="1398" height="552" key="GridCell.Tab.0.right" timestamp="1604802202056">
       <screen x="0" y="23" width="1440" height="804" />
     </state>
-    <state width="1398" height="552" key="GridCell.Tab.0.right/0.23.1440.804@0.23.1440.804" timestamp="1604773257928" />
+    <state width="1398" height="552" key="GridCell.Tab.0.right/0.23.1440.804@0.23.1440.804" timestamp="1604802202056" />
     <state width="1398" height="613" key="GridCell.Tab.0.right/0.23.1440.806@0.23.1440.806" timestamp="1603647477377" />
     <state x="221" y="65" key="SettingsEditor" timestamp="1603572734473">
       <screen x="0" y="23" width="1440" height="806" />
     </state>
     <state x="221" y="65" key="SettingsEditor/0.23.1440.806@0.23.1440.806" timestamp="1603572734473" />
-    <state x="320" y="166" key="Vcs.Push.Dialog.v2" timestamp="1604691366969">
+    <state x="320" y="166" key="Vcs.Push.Dialog.v2" timestamp="1604773385087">
       <screen x="0" y="23" width="1440" height="804" />
     </state>
-    <state x="320" y="166" key="Vcs.Push.Dialog.v2/0.23.1440.804@0.23.1440.804" timestamp="1604691366969" />
+    <state x="320" y="166" key="Vcs.Push.Dialog.v2/0.23.1440.804@0.23.1440.804" timestamp="1604773385087" />
     <state x="320" y="166" key="Vcs.Push.Dialog.v2/0.23.1440.806@0.23.1440.806" timestamp="1603584437607" />
     <state x="497" y="211" key="chooseDestDirectoryDialog" timestamp="1602790928528">
       <screen x="0" y="23" width="1440" height="806" />

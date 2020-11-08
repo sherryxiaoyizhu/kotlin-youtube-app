@@ -11,7 +11,6 @@ import com.example.kotlinyoutube.R
 import com.example.kotlinyoutube.api.Video
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.row_main.view.*
-import kotlinx.android.synthetic.main.content_one_video.view.*
 
 class HomeAdapter(private val viewModel: MainViewModel)
     : RecyclerView.Adapter<HomeAdapter.VH>() {
@@ -44,7 +43,7 @@ class HomeAdapter(private val viewModel: MainViewModel)
         init {
             // pass data from main view to one video view through intent
             view.videoImageView.setOnClickListener {
-                val intent = Intent(view.context, OneVideoActivity::class.java).apply {
+                val intent = Intent(view.context, YouTubeMediaPlayer::class.java).apply {
                     val startIdx = "https://i.ytimg.com/vi/".length
                     val title = oneVideo?.snippet?.title
                     val videoId = oneVideo?.snippet?.thumbnails?.high?.url?.substring(startIdx)
