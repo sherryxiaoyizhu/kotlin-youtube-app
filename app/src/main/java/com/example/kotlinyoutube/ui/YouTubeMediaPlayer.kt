@@ -3,6 +3,8 @@ package com.example.kotlinyoutube.ui
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import com.example.kotlinyoutube.MainActivity.Companion.MY_SECRET_API_KEY
 import com.example.kotlinyoutube.R
 import com.example.kotlinyoutube.api.OnePlaylist
@@ -13,7 +15,7 @@ import kotlinx.android.synthetic.main.content_youtube_player.*
 import kotlinx.android.synthetic.main.content_youtube_player.commentsCountTV
 import kotlinx.android.synthetic.main.content_youtube_player.dislikeCountTV
 import kotlinx.android.synthetic.main.content_youtube_player.likeCountTV
-import kotlinx.android.synthetic.main.content_youtube_player.oneVideoDescriptionTV
+import kotlinx.android.synthetic.main.content_youtube_player.descriptionTV
 import kotlinx.android.synthetic.main.content_youtube_player.viewCount_publishedAt_TV
 import okhttp3.*
 import java.io.IOException
@@ -41,6 +43,7 @@ class YouTubeMediaPlayer: YouTubeBaseActivity() {
             finish()
         }
 
+        // direct to YouTube web page
         youtubeBut.setOnClickListener {
             val intent = Intent(it.context, WebViewActivity::class.java).apply {
                 putExtra(WEB_URL_KEY, videoUrl)
@@ -55,7 +58,6 @@ class YouTubeMediaPlayer: YouTubeBaseActivity() {
                 player: YouTubePlayer?,
                 wasRestored: Boolean
             ) {
-                Log.d("XXX", "YouTubePlayer onInitializationSuccess...")
                 if (player == null) return
                 if (wasRestored) {
                     player.play()
@@ -100,6 +102,7 @@ class YouTubeMediaPlayer: YouTubeBaseActivity() {
 
     private fun fetchJSON(url: String) {
 
+        var isExpanded = false
         val request = Request.Builder().url(url).build()
         val client = OkHttpClient()
 
@@ -134,7 +137,19 @@ class YouTubeMediaPlayer: YouTubeBaseActivity() {
                     likeCountTV.text = viewModel.getShortScale(likesCount)
                     dislikeCountTV.text = viewModel.getShortScale(dislikesCount)
                     commentsCountTV.text = viewModel.getShortScale(commentsCount)
-                    oneVideoDescriptionTV.text = description
+                    descriptionTV.text = description
+
+                    chevron.setOnClickListener {
+                        if (isExpanded) {
+                            isExpanded = false
+                            chevron.setImageResource(R.drawable.ic_baseline_chevron_left_24dp)
+                            descriptionTV.visibility = GONE
+                        } else {
+                            isExpanded = true
+                            chevron.setImageResource(R.drawable.ic_baseline_chevron_right_24dp)
+                            descriptionTV.visibility = VISIBLE
+                        }
+                    }
 
 //                    videoDetailImageView.setOnLongClickListener {
 //                        val intent = Intent(it.context, YouTubeMediaPlayer::class.java).apply {

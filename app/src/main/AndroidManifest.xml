@@ -27,25 +27,20 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.OneVideoActivity"
+        <activity android:name=".ui.YouTubeMediaPlayer"
             android:label="Video Detail"
-            android:launchMode="singleTop">
+            android:launchMode="singleTop"
+            android:configChanges="orientation|screenSize">
             <meta-data android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
 
-        <activity android:name=".ui.YouTubeMediaPlayer"
-            android:label="YouTube"
-            android:launchMode="singleTop">
-            <meta-data android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.OneVideoActivity" />
-        </activity>
-
         <activity android:name=".ui.WebViewActivity"
             android:label="YouTube"
-            android:launchMode="singleTop">
+            android:launchMode="singleTop"
+            android:configChanges="orientation|screenSize">
             <meta-data android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.OneVideoActivity" />
+                android:value=".ui.YouTubeMediaPlayer" />
         </activity>
     </application>
 

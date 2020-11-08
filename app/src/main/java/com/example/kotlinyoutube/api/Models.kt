@@ -38,7 +38,7 @@ data class Video(val snippet: Snippet) {
         removeAllCurrentSpans()
 
         // search for titles
-        Log.d("XXX searchTerm", searchTerm)
+        //Log.d("XXX searchTerm", searchTerm)
         return setSpan(snippet.title, searchTerm)
     }
 

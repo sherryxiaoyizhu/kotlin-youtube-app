@@ -35,7 +35,7 @@
 
             <TextView
                 android:id="@+id/actionBarVideoTitle"
-                android:layout_width="300dp"
+                android:layout_width="320dp"
                 android:layout_height="56dp"
                 android:text="Video Title"
                 android:background="@color/colorPrimary"
@@ -57,8 +57,8 @@
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:gravity="center_vertical"
-                android:paddingEnd="16dp"
-                android:drawablePadding="8dp"
+                android:paddingEnd="4dp"
+                android:drawablePadding="4dp"
                 android:drawableRight="@drawable/ic_youtube_search_black_24dp"
                 android:textColor="@android:color/white"
                 tools:ignore="RtlSymmetry" />

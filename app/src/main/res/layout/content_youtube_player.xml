@@ -22,121 +22,162 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
-        <TextView
-            android:id="@+id/viewCount_publishedAt_TV"
-            android:text="28,500,000 views • Feb 19, 2020"
-            android:textSize="17sp"
+        <ScrollView
+            android:id="@+id/scroll_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="12dp"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/statsLayout"
-            app:layout_constraintTop_toBottomOf="@+id/viewCount_publishedAt_TV">
+            android:layout_height="match_parent"
+            android:fillViewport="true" >
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/like_icon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="12dp"
-                    android:src="@drawable/ic_thumbs_up_24dp" />
-
-                <TextView
-                    android:id="@+id/likeCountTV"
-                    android:text="306K"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="12dp"
-                    android:gravity="center" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/dislike_icon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="12dp"
-                    android:src="@drawable/ic_thumbs_down_24dp" />
-
-                <TextView
-                    android:id="@+id/dislikeCountTV"
-                    android:text="3K"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="12dp"
-                    android:gravity="center" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="2">
-
-                <ImageView
-                    android:id="@+id/comments_icon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="12dp"
-                    android:src="@drawable/ic_comment_black_24dp" />
-
-                <TextView
-                    android:id="@+id/commentsCountTV"
-                    android:text="17K"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="12dp"
-                    android:gravity="end" />
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <View
-            android:id="@+id/dividerBar"
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:background="#ff000000"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="parent" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ScrollView
-                android:id="@+id/scroll_view"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fillViewport="true" >
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-                <LinearLayout android:id="@+id/scroll_layout"
+                <TextView
+                    android:id="@+id/viewCount_publishedAt_TV"
+                    android:text="28,500,000 views • Feb 19, 2020"
+                    android:textSize="17sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:animateLayoutChanges="true"
+                    android:layout_margin="12dp"/>
+
+                <LinearLayout
+                    android:id="@+id/statsLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/viewCount_publishedAt_TV">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/like_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="12dp"
+                            android:src="@drawable/ic_thumbs_up_24dp" />
+
+                        <TextView
+                            android:id="@+id/likeCountTV"
+                            android:text="306K"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="12dp"
+                            android:gravity="center" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/dislike_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="12dp"
+                            android:src="@drawable/ic_thumbs_down_24dp" />
+
+                        <TextView
+                            android:id="@+id/dislikeCountTV"
+                            android:text="3K"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="12dp"
+                            android:gravity="center" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2">
+
+                        <ImageView
+                            android:id="@+id/comments_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="12dp"
+                            android:src="@drawable/ic_comment_black_24dp" />
+
+                        <TextView
+                            android:id="@+id/commentsCountTV"
+                            android:text="17K"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="12dp"
+                            android:gravity="end" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/dividerBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#ff000000"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
 
+                    <LinearLayout
+                        android:id="@+id/descriptionHeader"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_weight="2">
+
+                        <TextView
+                            android:id="@+id/descriptionText"
+                            android:text="Description"
+                            android:textSize="17sp"
+                            android:layout_margin="12dp"
+                            android:layout_width="320dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            app:layout_constraintEnd_toStartOf="@+id/chevron"/>
+
+                        <ImageButton
+                            android:id="@+id/chevron"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:background="#00000000"
+                            android:src="@drawable/ic_baseline_chevron_left_24dp"
+                            app:layout_constraintStart_toEndOf="@+id/descriptionText"
+                            app:layout_constraintEnd_toEndOf="parent"/>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="#ff000000"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="parent" />
+
                     <TextView
-                        android:id="@+id/oneVideoDescriptionTV"
+                        android:id="@+id/descriptionTV"
                         android:layout_margin="12dp"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-            </ScrollView>
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        app:layout_constraintTop_toBottomOf="@+id/descriptionHeader">
+                    </TextView>
 
-        </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
 
     </LinearLayout>
 
