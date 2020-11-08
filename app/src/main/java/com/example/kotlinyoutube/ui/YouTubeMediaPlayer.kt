@@ -58,7 +58,10 @@ class YouTubeMediaPlayer: YouTubeBaseActivity() {
                 player: YouTubePlayer?,
                 wasRestored: Boolean
             ) {
-                if (player == null) return
+                if (player == null) {
+                    Log.d("XXX", "player == null...")
+                    return
+                }
                 if (wasRestored) {
                     player.play()
                 } else {
@@ -107,6 +110,7 @@ class YouTubeMediaPlayer: YouTubeBaseActivity() {
         val client = OkHttpClient()
 
         client.newCall(request).enqueue(object: Callback {
+
             override fun onResponse(call: Call, response: Response) {
                 val body = response.body?.string()
                 //Log.d("XXX", "Json parsed: $body")
@@ -116,7 +120,6 @@ class YouTubeMediaPlayer: YouTubeBaseActivity() {
                 val item =  onePlaylist.items[0]
 
                 runOnUiThread {
-
                     // fetch data
                     //val thumbnailUrl = item.snippet.thumbnails.high.url
                     val viewCount = item.statistics.viewCount
@@ -125,10 +128,6 @@ class YouTubeMediaPlayer: YouTubeBaseActivity() {
                     val dislikesCount = item.statistics.dislikeCount
                     val commentsCount = item.statistics.commentCount
                     val description = item.snippet.description
-
-                    // display video detail thumbnail
-                    //val thumbnailImageView = videoDetailImageView
-                    //Picasso.with(applicationContext).load(thumbnailUrl).into(thumbnailImageView)
 
                     // display video details: views, published time, number of likes, comments, description
                     val views = viewModel.getThousands(viewCount)
@@ -146,18 +145,10 @@ class YouTubeMediaPlayer: YouTubeBaseActivity() {
                             descriptionTV.visibility = GONE
                         } else {
                             isExpanded = true
-                            chevron.setImageResource(R.drawable.ic_baseline_chevron_right_24dp)
+                            chevron.setImageResource(R.drawable.ic_baseline_chevron_down_24dp)
                             descriptionTV.visibility = VISIBLE
                         }
                     }
-
-//                    videoDetailImageView.setOnLongClickListener {
-//                        val intent = Intent(it.context, YouTubeMediaPlayer::class.java).apply {
-//                            putExtra(VIDEO_ID_KEY, videoId)
-//                        }
-//                        startActivity(intent)
-//                        true
-//                    }
                 }
             }
 

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,21 +11,38 @@
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="2">
 
+            <!--https://android.googlesource.com/platform/frameworks/base/+/refs/heads/master/core/res/res/values/dimens_material.xml-->
             <TextView
-                android:id="@+id/webviewTitle"
+                android:id="@+id/actionBack"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:ellipsize="end" />
-        </androidx.appcompat.widget.Toolbar>
+                android:layout_height="56dp"
+                android:background="@color/colorPrimary"
+                android:maxLines="1"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:drawablePadding="32dp"
+                android:drawableLeft="@drawable/ic_back_arrow_white_24dp"
+                android:textColor="@android:color/white"
+                tools:ignore="RtlSymmetry" />
+
+            <ImageView
+                android:id="@+id/youtubeLogo"
+                android:layout_width="125dp"
+                android:layout_height="30dp"
+                android:background="@color/colorPrimary"
+                android:gravity="center_vertical"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="13dp"/>
+
+        </LinearLayout>
 
     </com.google.android.material.appbar.AppBarLayout>
 

@@ -34,7 +34,7 @@ data class Video(val snippet: Snippet) {
     }
 
     fun searchFor(searchTerm: String): Boolean {
-        // XXX Write me, search both regular posts and subreddit listings
+        // search both regular posts and subreddit listings
         removeAllCurrentSpans()
 
         // search for titles

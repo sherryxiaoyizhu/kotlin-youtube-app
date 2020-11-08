@@ -9,18 +9,26 @@ import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
 import com.example.kotlinyoutube.R
 import com.example.kotlinyoutube.ui.YouTubeMediaPlayer.Companion.WEB_URL_KEY
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_webview.*
+import kotlinx.android.synthetic.main.activity_webview.actionBack
+import kotlinx.android.synthetic.main.activity_youtube_player.*
 
 class WebViewActivity: AppCompatActivity() {
 
-    @SuppressLint("SetJavaScriptEnabled")
+    @SuppressLint("SetJavaScriptEnabled", "SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_webview)
-        // set up tool bar
-        setSupportActionBar(toolbar)
-        // display ActionBar back button
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        // action bar: go back arrow
+        actionBack.setOnClickListener {
+            finish()
+        }
+
+        // display YouTube logo
+        val youtubeImageUrl = "https://www.youtube.com/yts/img/marketing/browsers/yt_logo_rgb_light-vflc4oMnY.png"
+        Picasso.with(applicationContext).load(youtubeImageUrl).into(youtubeLogo)
 
         // load web url
         val url = intent.extras?.getString(WEB_URL_KEY)
