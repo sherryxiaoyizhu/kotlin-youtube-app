@@ -8,15 +8,12 @@ import android.view.View.VISIBLE
 import com.example.kotlinyoutube.MainActivity.Companion.MY_SECRET_API_KEY
 import com.example.kotlinyoutube.R
 import com.example.kotlinyoutube.api.OnePlaylist
+import com.example.kotlinyoutube.api.OneVideo
 import com.google.android.youtube.player.*
 import com.google.gson.GsonBuilder
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_youtube_player.*
 import kotlinx.android.synthetic.main.content_youtube_player.*
-import kotlinx.android.synthetic.main.content_youtube_player.commentsCountTV
-import kotlinx.android.synthetic.main.content_youtube_player.dislikeCountTV
-import kotlinx.android.synthetic.main.content_youtube_player.likeCountTV
-import kotlinx.android.synthetic.main.content_youtube_player.descriptionTV
-import kotlinx.android.synthetic.main.content_youtube_player.viewCount_publishedAt_TV
 import okhttp3.*
 import java.io.IOException
 
@@ -25,6 +22,13 @@ class YouTubeMediaPlayer: YouTubeBaseActivity() {
     // initialize viewModel
     //private val viewModel: MainViewModel by viewModels()
     private val viewModel = MainViewModel()
+
+    private var isExpanded = false
+    private var httpUrl = ""
+    private var videoTitle = ""
+    private var nextImageUrl = ""
+    private var nextTitle = ""
+    private var nextDisplayText = ""
 
     companion object {
         var videoUrl = ""
@@ -38,20 +42,27 @@ class YouTubeMediaPlayer: YouTubeBaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_youtube_player)
 
+        initActionBar()
+        initYouTubePlayer()
+        getURL()
+    }
+
+    private fun initActionBar() {
         // action bar: go back arrow
         actionBack.setOnClickListener {
             finish()
         }
 
-        // direct to YouTube web page
+        // YouTube search icon: direct to YouTube web page
         youtubeBut.setOnClickListener {
             val intent = Intent(it.context, WebViewActivity::class.java).apply {
                 putExtra(WEB_URL_KEY, videoUrl)
             }
             startActivity(intent)
         }
+    }
 
-        // YouTube player
+    private fun initYouTubePlayer() {
         youtubePlayer.initialize(MY_SECRET_API_KEY, object:YouTubePlayer.OnInitializedListener {
             override fun onInitializationSuccess(
                 provider: YouTubePlayer.Provider?,
@@ -78,18 +89,19 @@ class YouTubeMediaPlayer: YouTubeBaseActivity() {
                 Log.d("XXX", "YouTube Fragment Initialization Failed...")
             }
         })
+    }
 
-        // get data through intent
+    private fun getURL() {
         intent.extras?.apply {
-
             // update ActionBar title
-            actionBarVideoTitle.text = getString(HomeAdapter.VH.VIDEO_TITLE_KEY)
+            videoTitle = getString(HomeAdapter.VH.VIDEO_TITLE_KEY)!!
+            actionBarVideoTitle.text = videoTitle
 
             // get video id
             videoId = getString(VIDEO_ID_KEY).toString().substringBefore('/')
 
             // get video http url
-            val httpUrl = "https://www.googleapis.com/youtube/v3/videos?"+
+            httpUrl = "https://www.googleapis.com/youtube/v3/videos?"+
                     "id=${videoId}"+
                     "&key=$MY_SECRET_API_KEY"+
                     "&part=snippet,contentDetails,statistics,status"
@@ -98,14 +110,17 @@ class YouTubeMediaPlayer: YouTubeBaseActivity() {
             // here videoUrl is specified for each video
             videoUrl = "https://www.youtube.com/watch?v=${videoId}"
 
-            // fetch JSON for video detail
-            fetchJSON(httpUrl)
+            // get next video thumbnail url
+            nextImageUrl = getString(HomeAdapter.VH.NEXT_VIDEO_URL_KEY)!!
+            nextTitle = getString(HomeAdapter.VH.NEXT_VIDEO_TITLE_KEY)!!
+            nextDisplayText = getString(HomeAdapter.VH.NEXT_DISPLAY_TEXT_KEY)!!
         }
+
+        // fetch JSON for video detail
+        fetchJSON(httpUrl)
     }
 
     private fun fetchJSON(url: String) {
-
-        var isExpanded = false
         val request = Request.Builder().url(url).build()
         val client = OkHttpClient()
 
@@ -120,35 +135,8 @@ class YouTubeMediaPlayer: YouTubeBaseActivity() {
                 val item =  onePlaylist.items[0]
 
                 runOnUiThread {
-                    // fetch data
-                    //val thumbnailUrl = item.snippet.thumbnails.high.url
-                    val viewCount = item.statistics.viewCount
-                    val publishedDate = item.snippet.publishedAt.substringBefore('T')
-                    val likesCount = item.statistics.likeCount
-                    val dislikesCount = item.statistics.dislikeCount
-                    val commentsCount = item.statistics.commentCount
-                    val description = item.snippet.description
-
-                    // display video details: views, published time, number of likes, comments, description
-                    val views = viewModel.getThousands(viewCount)
-                    val time = viewModel.getTimeAgo(viewModel.stringToDate(publishedDate))
-                    viewCount_publishedAt_TV.text = "$views views • $time"
-                    likeCountTV.text = viewModel.getShortScale(likesCount)
-                    dislikeCountTV.text = viewModel.getShortScale(dislikesCount)
-                    commentsCountTV.text = viewModel.getShortScale(commentsCount)
-                    descriptionTV.text = description
-
-                    chevron.setOnClickListener {
-                        if (isExpanded) {
-                            isExpanded = false
-                            chevron.setImageResource(R.drawable.ic_baseline_chevron_left_24dp)
-                            descriptionTV.visibility = GONE
-                        } else {
-                            isExpanded = true
-                            chevron.setImageResource(R.drawable.ic_baseline_chevron_down_24dp)
-                            descriptionTV.visibility = VISIBLE
-                        }
-                    }
+                    initViews(item)
+                    initChevron()
                 }
             }
 
@@ -156,5 +144,43 @@ class YouTubeMediaPlayer: YouTubeBaseActivity() {
                 Log.d("XXX", "Failed to execute request")
             }
         })
+    }
+
+    private fun initViews(item: OneVideo) {
+        // fetch data
+        //val thumbnailUrl = item.snippet.thumbnails.high.url
+        val viewCount = item.statistics.viewCount
+        val publishedDate = item.snippet.publishedAt.substringBefore('T')
+        val likesCount = item.statistics.likeCount
+        val dislikesCount = item.statistics.dislikeCount
+        val commentsCount = item.statistics.commentCount
+        val description = item.snippet.description
+
+        // display video details: views, published time, number of likes, comments, description
+        videoTitleTV.text = videoTitle
+        val views = viewModel.getThousands(viewCount)
+        val time = viewModel.getTimeAgo(viewModel.stringToDate(publishedDate))
+        viewCount_publishedAt_TV.text = "$views views • $time"
+        likeCountTV.text = viewModel.getShortScale(likesCount)
+        dislikeCountTV.text = viewModel.getShortScale(dislikesCount)
+        commentsCountTV.text = viewModel.getShortScale(commentsCount)
+        Picasso.with(applicationContext).load(nextImageUrl).into(nextVideoIVOne)
+        nextTitleTVOne.text = nextTitle
+        displayTVOne.text = nextDisplayText
+        descriptionTV.text = description
+    }
+
+    private fun initChevron() {
+        chevron.setOnClickListener {
+            if (isExpanded) {
+                isExpanded = false
+                chevron.setImageResource(R.drawable.ic_baseline_chevron_left_24dp)
+                descriptionTV.visibility = GONE
+            } else {
+                isExpanded = true
+                chevron.setImageResource(R.drawable.ic_baseline_chevron_down_24dp)
+                descriptionTV.visibility = VISIBLE
+            }
+        }
     }
 }

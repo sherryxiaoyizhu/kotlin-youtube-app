@@ -57,7 +57,7 @@
         android:id="@+id/displayTV"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Channel Name • 17K views • 5 days ago"
+        android:text="#Channel Name • 5 days ago"
         android:textSize="15sp"
         android:paddingBottom="16dp"
         app:layout_constraintEnd_toEndOf="@+id/videoTitleTV"
