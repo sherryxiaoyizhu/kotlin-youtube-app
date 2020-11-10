@@ -6,7 +6,6 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="XXX" />
     <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
@@ -17,10 +16,13 @@
     <list default="true" id="bb720c23-9b72-4185-b5be-83fdb33c61eb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/kotlinyoutube/ui/HomeAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/kotlinyoutube/ui/HomeAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/kotlinyoutube/ui/WebViewActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/kotlinyoutube/ui/WebViewActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/kotlinyoutube/ui/YouTubeMediaPlayer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/kotlinyoutube/ui/YouTubeMediaPlayer.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_webview.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_webview.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_youtube_player.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_youtube_player.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/row_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/row_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_rv.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_rv.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -484,12 +486,18 @@
       <option name="project" value="LOCAL" />
       <updated>1604879553415</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Add Video Up Next">
+      <created>1604896116988</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1604896116988</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Add video detail" />
     <MESSAGE value="Fix Models" />
     <MESSAGE value="Update count functions" />
     <MESSAGE value="Update One Video" />
@@ -514,7 +522,8 @@
     <MESSAGE value="Remove OneVideoActivity &amp; Add YouTubeMediaPlayer" />
     <MESSAGE value="Add chevron" />
     <MESSAGE value="Refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring" />
+    <MESSAGE value="Add Video Up Next" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Video Up Next" />
   </component>
   <component name="WindowStateProjectService">
     <state x="458" y="187" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1603934276760">
@@ -530,10 +539,10 @@
       <screen x="0" y="23" width="1440" height="806" />
     </state>
     <state x="408" y="169" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.1440.806@0.23.1440.806" timestamp="1603646240048" />
-    <state x="458" y="180" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1604875306489">
+    <state x="458" y="180" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605027804083">
       <screen x="0" y="23" width="1440" height="804" />
     </state>
-    <state x="458" y="180" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.804@0.23.1440.804" timestamp="1604875306489" />
+    <state x="458" y="180" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.804@0.23.1440.804" timestamp="1605027804083" />
     <state x="458" y="180" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.806@0.23.1440.806" timestamp="1603044091881" />
     <state x="477" y="210" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog" timestamp="1603658564926">
       <screen x="0" y="23" width="1440" height="804" />
@@ -543,39 +552,39 @@
       <screen x="0" y="23" width="1440" height="806" />
     </state>
     <state x="308" y="188" key="AndroidCreateResourceFileDialog/0.23.1440.806@0.23.1440.806" timestamp="1603039666115" />
-    <state x="112" y="23" key="CommitChangelistDialog2" timestamp="1604879553230">
+    <state x="112" y="23" key="CommitChangelistDialog2" timestamp="1604896116837">
       <screen x="0" y="23" width="1440" height="804" />
     </state>
-    <state x="112" y="23" key="CommitChangelistDialog2/0.23.1440.804@0.23.1440.804" timestamp="1604879553230" />
+    <state x="112" y="23" key="CommitChangelistDialog2/0.23.1440.804@0.23.1440.804" timestamp="1604896116837" />
     <state x="27" y="28" key="CommitChangelistDialog2/0.23.1440.806@0.23.1440.806" timestamp="1603584431593" />
-    <state width="1398" height="552" key="GridCell.Tab.0.bottom" timestamp="1604895846417">
+    <state width="1398" height="552" key="GridCell.Tab.0.bottom" timestamp="1605027097322">
       <screen x="0" y="23" width="1440" height="804" />
     </state>
-    <state width="1398" height="552" key="GridCell.Tab.0.bottom/0.23.1440.804@0.23.1440.804" timestamp="1604895846417" />
+    <state width="1398" height="552" key="GridCell.Tab.0.bottom/0.23.1440.804@0.23.1440.804" timestamp="1605027097322" />
     <state width="1398" height="613" key="GridCell.Tab.0.bottom/0.23.1440.806@0.23.1440.806" timestamp="1603647477377" />
-    <state width="1398" height="552" key="GridCell.Tab.0.center" timestamp="1604895846416">
+    <state width="1398" height="552" key="GridCell.Tab.0.center" timestamp="1605027097322">
       <screen x="0" y="23" width="1440" height="804" />
     </state>
-    <state width="1398" height="552" key="GridCell.Tab.0.center/0.23.1440.804@0.23.1440.804" timestamp="1604895846416" />
+    <state width="1398" height="552" key="GridCell.Tab.0.center/0.23.1440.804@0.23.1440.804" timestamp="1605027097322" />
     <state width="1398" height="613" key="GridCell.Tab.0.center/0.23.1440.806@0.23.1440.806" timestamp="1603647477377" />
-    <state width="1398" height="552" key="GridCell.Tab.0.left" timestamp="1604895846415">
+    <state width="1398" height="552" key="GridCell.Tab.0.left" timestamp="1605027097322">
       <screen x="0" y="23" width="1440" height="804" />
     </state>
-    <state width="1398" height="552" key="GridCell.Tab.0.left/0.23.1440.804@0.23.1440.804" timestamp="1604895846415" />
+    <state width="1398" height="552" key="GridCell.Tab.0.left/0.23.1440.804@0.23.1440.804" timestamp="1605027097322" />
     <state width="1398" height="613" key="GridCell.Tab.0.left/0.23.1440.806@0.23.1440.806" timestamp="1603647477377" />
-    <state width="1398" height="552" key="GridCell.Tab.0.right" timestamp="1604895846416">
+    <state width="1398" height="552" key="GridCell.Tab.0.right" timestamp="1605027097322">
       <screen x="0" y="23" width="1440" height="804" />
     </state>
-    <state width="1398" height="552" key="GridCell.Tab.0.right/0.23.1440.804@0.23.1440.804" timestamp="1604895846416" />
+    <state width="1398" height="552" key="GridCell.Tab.0.right/0.23.1440.804@0.23.1440.804" timestamp="1605027097322" />
     <state width="1398" height="613" key="GridCell.Tab.0.right/0.23.1440.806@0.23.1440.806" timestamp="1603647477377" />
     <state x="221" y="65" key="SettingsEditor" timestamp="1603572734473">
       <screen x="0" y="23" width="1440" height="806" />
     </state>
     <state x="221" y="65" key="SettingsEditor/0.23.1440.806@0.23.1440.806" timestamp="1603572734473" />
-    <state x="320" y="166" key="Vcs.Push.Dialog.v2" timestamp="1604879559310">
+    <state x="320" y="166" key="Vcs.Push.Dialog.v2" timestamp="1604896122071">
       <screen x="0" y="23" width="1440" height="804" />
     </state>
-    <state x="320" y="166" key="Vcs.Push.Dialog.v2/0.23.1440.804@0.23.1440.804" timestamp="1604879559310" />
+    <state x="320" y="166" key="Vcs.Push.Dialog.v2/0.23.1440.804@0.23.1440.804" timestamp="1604896122071" />
     <state x="320" y="166" key="Vcs.Push.Dialog.v2/0.23.1440.806@0.23.1440.806" timestamp="1603584437607" />
     <state x="497" y="211" key="chooseDestDirectoryDialog" timestamp="1602790928528">
       <screen x="0" y="23" width="1440" height="806" />

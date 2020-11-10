@@ -12,7 +12,6 @@ import com.example.kotlinyoutube.ui.YouTubeMediaPlayer.Companion.WEB_URL_KEY
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_webview.*
 import kotlinx.android.synthetic.main.activity_webview.actionBack
-import kotlinx.android.synthetic.main.activity_youtube_player.*
 
 class WebViewActivity: AppCompatActivity() {
 

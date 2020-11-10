@@ -1,7 +1,6 @@
 package com.example.kotlinyoutube.ui
 
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
@@ -9,9 +8,7 @@ import android.view.ViewGroup
 import com.example.kotlinyoutube.MainActivity.Companion.CHANNEL_PROFILE_IMAGE
 import com.example.kotlinyoutube.R
 import com.example.kotlinyoutube.api.Video
-import com.google.common.collect.Iterators.getNext
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.content_youtube_player.*
 import kotlinx.android.synthetic.main.row_main.view.*
 
 class HomeAdapter(private val viewModel: MainViewModel)
@@ -44,6 +41,7 @@ class HomeAdapter(private val viewModel: MainViewModel)
             const val NEXT_VIDEO_URL_KEY = "NEXT_VIDEO_URL"
             const val NEXT_VIDEO_TITLE_KEY = "NEXT_VIDEO_TITLE"
             const val NEXT_DISPLAY_TEXT_KEY = "NEXT_DISPLAY_TEXT"
+            const val NEXT_VIDEO_ID_KEY = "NEXT_VIDEO_ID"
         }
 
         init {
@@ -59,12 +57,14 @@ class HomeAdapter(private val viewModel: MainViewModel)
                     val publishedDate = nextVideo?.snippet?.publishedAt?.substringBefore('T')
                     val displayTime = viewModel.getTimeAgo(viewModel.stringToDate(publishedDate!!))
                     val displayText = nextVideo?.snippet?.channelTitle + " • $displayTime"
+                    val nextVideoId = nextVideo?.snippet?.thumbnails?.high?.url?.substring(startIdx)
 
                     putExtra(VIDEO_TITLE_KEY, title)
                     putExtra(VIDEO_ID_KEY, videoId)
                     putExtra(NEXT_VIDEO_URL_KEY, nextVideoThumbnailUrl)
                     putExtra(NEXT_VIDEO_TITLE_KEY, nextVideoTitle)
                     putExtra(NEXT_DISPLAY_TEXT_KEY, displayText)
+                    putExtra(NEXT_VIDEO_ID_KEY, nextVideoId)
                 }
                 view.context.startActivity(intent)
             }
