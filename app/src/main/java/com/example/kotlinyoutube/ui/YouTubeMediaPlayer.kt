@@ -9,6 +9,10 @@ import com.example.kotlinyoutube.MainActivity.Companion.MY_SECRET_API_KEY
 import com.example.kotlinyoutube.R
 import com.example.kotlinyoutube.api.OnePlaylist
 import com.example.kotlinyoutube.api.OneVideo
+import com.example.kotlinyoutube.ui.HomeAdapter.VH.Companion.NEXT_DISPLAY_TEXT_KEY
+import com.example.kotlinyoutube.ui.HomeAdapter.VH.Companion.NEXT_VIDEO_ID_KEY
+import com.example.kotlinyoutube.ui.HomeAdapter.VH.Companion.NEXT_VIDEO_TITLE_KEY
+import com.example.kotlinyoutube.ui.HomeAdapter.VH.Companion.NEXT_VIDEO_URL_KEY
 import com.example.kotlinyoutube.ui.HomeAdapter.VH.Companion.VIDEO_ID_KEY
 import com.example.kotlinyoutube.ui.HomeAdapter.VH.Companion.VIDEO_TITLE_KEY
 import com.google.android.youtube.player.*
@@ -36,18 +40,10 @@ class YouTubeMediaPlayer: YouTubeBaseActivity() {
     private var nextTitle = ""
     private var nextDisplayText = ""
     private var nextVideoId = ""
+    private var nextVideoWebUrl = ""
 
     companion object {
-        // pass to WebView
-        const val WEB_URL_KEY = "WEB_URL"
-        // current video
-        const val CURRENT_VIDEO_TITLE_KEY = "CURRENT_VIDEO_TITLE"
-        const val CURRENT_VIDEO_ID_KEY = "CURRENT_VIDEO_ID"
-        // next video
-        const val NEXT_VIDEO_URL_KEY = "NEXT_VIDEO_URL"
-        const val NEXT_VIDEO_TITLE_KEY = "NEXT_VIDEO_TITLE"
-        const val NEXT_DISPLAY_TEXT_KEY = "NEXT_DISPLAY_TEXT"
-        const val NEXT_VIDEO_ID_KEY = "NEXT_VIDEO_ID"
+        const val WEB_URL_KEY = "WEB_URL" // pass to WebView
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -95,7 +91,7 @@ class YouTubeMediaPlayer: YouTubeBaseActivity() {
             }
 
             override fun onInitializationFailure(
-                p0: com.google.android.youtube.player.YouTubePlayer.Provider?,
+                p0: YouTubePlayer.Provider?,
                 p1: YouTubeInitializationResult?
             ) {
                 Log.d("XXX", "YouTube Fragment Initialization Failed...")
@@ -188,13 +184,9 @@ class YouTubeMediaPlayer: YouTubeBaseActivity() {
 
     private fun onClickNext() {
         nextVideoIVOne.setOnClickListener {
-            val intent = Intent(it.context, YouTubeMediaPlayer::class.java).apply {
-                putExtra(CURRENT_VIDEO_TITLE_KEY, videoTitle)
-                putExtra(CURRENT_VIDEO_ID_KEY, videoId)
-                putExtra(NEXT_VIDEO_URL_KEY, nextImageUrl)
-                putExtra(NEXT_VIDEO_TITLE_KEY, nextTitle)
-                putExtra(NEXT_DISPLAY_TEXT_KEY, nextDisplayText)
-                putExtra(NEXT_VIDEO_ID_KEY, nextVideoId)
+            nextVideoWebUrl = "https://www.youtube.com/watch?v=${nextVideoId}"
+            val intent = Intent(it.context, WebViewActivity::class.java).apply {
+                putExtra(WEB_URL_KEY, nextVideoWebUrl)
             }
             startActivity(intent)
         }
