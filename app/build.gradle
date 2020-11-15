@@ -19,6 +19,11 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            // to mask API key
+            buildConfigField("String", "MY_SECRET_API_KEY", getApiKey())
+        }
+        debug {
+            buildConfigField("String", "MY_SECRET_API_KEY", getApiKey())
         }
     }
 
@@ -26,6 +31,14 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+}
+
+def getApiKey() {
+    def keysFile = file("keys.properties")
+    def keysProperties = new Properties()
+    keysProperties.load(new FileInputStream(keysFile))
+    def apiKey = keysProperties['MY_SECRET_API_KEY']
+    return "\"" + apiKey + "\""
 }
 
 dependencies {

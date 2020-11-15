@@ -21,12 +21,9 @@ class MainActivity: AppCompatActivity() {
     companion object {
         private const val RC_SIGN_IN = 123
 
-        // update and put it in .env before publishing the repo
-        const val MY_SECRET_API_KEY = "AIzaSyArKlbgIq5WSsDxoo2AFc4JD4qRAiJf1Xs"
-
-        const val PLAYLIST_HTTP_URL = "https://www.googleapis.com/youtube/v3/playlistItems?&maxResults=100" +
+        val PLAYLIST_HTTP_URL = "https://www.googleapis.com/youtube/v3/playlistItems?&maxResults=100" +
                 "&playlistId=PLx0sYbCqOb8TBPRdmBHs5Iftvv9TPboYG" +
-                "&key=${MY_SECRET_API_KEY}" +
+                "&key=${BuildConfig.MY_SECRET_API_KEY}" +
                 "&fields=items(snippet(publishedAt,title,description,channelTitle,position,thumbnails))" +
                 "&part=snippet"
 

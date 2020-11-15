@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View.GONE
 import android.view.View.VISIBLE
-import com.example.kotlinyoutube.MainActivity.Companion.MY_SECRET_API_KEY
+import com.example.kotlinyoutube.BuildConfig
 import com.example.kotlinyoutube.R
 import com.example.kotlinyoutube.api.OnePlaylist
 import com.example.kotlinyoutube.api.OneVideo
@@ -71,7 +71,7 @@ class YouTubeMediaPlayer: YouTubeBaseActivity() {
     }
 
     private fun initYouTubePlayer() {
-        youtubePlayer.initialize(MY_SECRET_API_KEY, object:YouTubePlayer.OnInitializedListener {
+        youtubePlayer.initialize(BuildConfig.MY_SECRET_API_KEY, object:YouTubePlayer.OnInitializedListener {
             override fun onInitializationSuccess(
                 provider: YouTubePlayer.Provider?,
                 player: YouTubePlayer?,
@@ -111,7 +111,7 @@ class YouTubeMediaPlayer: YouTubeBaseActivity() {
             // get video http url to fetch Json
             httpUrl = "https://www.googleapis.com/youtube/v3/videos?"+
                     "id=${videoId}"+
-                    "&key=$MY_SECRET_API_KEY"+
+                    "&key=${BuildConfig.MY_SECRET_API_KEY}"+
                     "&part=snippet,contentDetails,statistics,status"
 
             // Note: home fragment renders data from a YouTube video playlist,
