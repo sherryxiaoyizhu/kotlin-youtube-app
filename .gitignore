@@ -1,3 +1,2 @@
-# Ignore gradle files
-.gradle/
-build/
+#https://stackoverflow.com/questions/50940444/how-to-add-gradle-properties-in-git-ignore-file-android
+gradle.properties
