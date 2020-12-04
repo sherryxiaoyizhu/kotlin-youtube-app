@@ -13,12 +13,13 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bb720c23-9b72-4185-b5be-83fdb33c61eb" name="Default Changelist" comment="Remove keys.properties">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="bb720c23-9b72-4185-b5be-83fdb33c61eb" name="Default Changelist" comment="Mask API Key">
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/app/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_youtube_player.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_youtube_player.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,11 +94,13 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Pixel_3a_XL_API_30" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-12-04T21:16:32.767Z" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android-custom-view/Users/sherryxiaoyizhu/Library/Android/sdk/sources/android-29/android/widget/TextView.java_SELECTED" value="TextView" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/drawable-hdpi" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="memory.settings.postsync.do.not.ask.for.project" value="true" />
     <property name="memory.settings.postsync.last.time.stamp" value="1603572648676" />
     <property name="multi-representation-preview/Users/sherryxiaoyizhu/Library/Android/sdk/sources/android-29/android/widget/TextView.java_selected" value="Custom views" />
@@ -538,12 +541,18 @@
       <option name="project" value="LOCAL" />
       <updated>1605473375161</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Mask API Key">
+      <created>1605474021862</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1605474021862</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Add Favorites" />
     <MESSAGE value="Update Favorites" />
     <MESSAGE value="Add YouTubeApi" />
     <MESSAGE value="Update Repository" />
@@ -568,7 +577,8 @@
     <MESSAGE value="Add gitignore" />
     <MESSAGE value="Update gitignore" />
     <MESSAGE value="Remove keys.properties" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove keys.properties" />
+    <MESSAGE value="Mask API Key" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mask API Key" />
   </component>
   <component name="WindowStateProjectService">
     <state x="458" y="187" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1603934276760">
@@ -601,39 +611,47 @@
       <screen x="0" y="23" width="1440" height="806" />
     </state>
     <state x="308" y="188" key="AndroidCreateResourceFileDialog/0.23.1440.806@0.23.1440.806" timestamp="1603039666115" />
-    <state x="112" y="23" key="CommitChangelistDialog2" timestamp="1605473551642">
-      <screen x="0" y="23" width="1440" height="804" />
+    <state x="27" y="23" key="CommitChangelistDialog2" timestamp="1607116346384">
+      <screen x="0" y="23" width="1440" height="806" />
     </state>
-    <state x="112" y="23" key="CommitChangelistDialog2/0.23.1440.804@0.23.1440.804" timestamp="1605473551642" />
-    <state x="27" y="28" key="CommitChangelistDialog2/0.23.1440.806@0.23.1440.806" timestamp="1603584431593" />
-    <state width="1398" height="552" key="GridCell.Tab.0.bottom" timestamp="1605027097322">
-      <screen x="0" y="23" width="1440" height="804" />
+    <state x="112" y="23" key="CommitChangelistDialog2/0.23.1440.804@0.23.1440.804" timestamp="1605474021724" />
+    <state x="27" y="23" key="CommitChangelistDialog2/0.23.1440.806@0.23.1440.806" timestamp="1607116346384" />
+    <state x="0" y="93" key="DiffContextDialog" timestamp="1607116331634">
+      <screen x="0" y="23" width="1440" height="806" />
     </state>
-    <state width="1398" height="552" key="GridCell.Tab.0.bottom/0.23.1440.804@0.23.1440.804" timestamp="1605027097322" />
-    <state width="1398" height="613" key="GridCell.Tab.0.bottom/0.23.1440.806@0.23.1440.806" timestamp="1603647477377" />
-    <state width="1398" height="552" key="GridCell.Tab.0.center" timestamp="1605027097322">
-      <screen x="0" y="23" width="1440" height="804" />
+    <state x="0" y="93" key="DiffContextDialog/0.23.1440.806@0.23.1440.806" timestamp="1607116331634" />
+    <state width="1398" height="552" key="GridCell.Tab.0.bottom" timestamp="1607116463709">
+      <screen x="0" y="23" width="1440" height="806" />
     </state>
-    <state width="1398" height="552" key="GridCell.Tab.0.center/0.23.1440.804@0.23.1440.804" timestamp="1605027097322" />
-    <state width="1398" height="613" key="GridCell.Tab.0.center/0.23.1440.806@0.23.1440.806" timestamp="1603647477377" />
-    <state width="1398" height="552" key="GridCell.Tab.0.left" timestamp="1605027097322">
-      <screen x="0" y="23" width="1440" height="804" />
+    <state width="1398" height="552" key="GridCell.Tab.0.bottom/0.23.1440.804@0.23.1440.804" timestamp="1605491059672" />
+    <state width="1398" height="552" key="GridCell.Tab.0.bottom/0.23.1440.806@0.23.1440.806" timestamp="1607116463709" />
+    <state width="1398" height="552" key="GridCell.Tab.0.bottom/0.23.1440.808@0.23.1440.808" timestamp="1607116421031" />
+    <state width="1398" height="552" key="GridCell.Tab.0.center" timestamp="1607116463708">
+      <screen x="0" y="23" width="1440" height="806" />
     </state>
-    <state width="1398" height="552" key="GridCell.Tab.0.left/0.23.1440.804@0.23.1440.804" timestamp="1605027097322" />
-    <state width="1398" height="613" key="GridCell.Tab.0.left/0.23.1440.806@0.23.1440.806" timestamp="1603647477377" />
-    <state width="1398" height="552" key="GridCell.Tab.0.right" timestamp="1605027097322">
-      <screen x="0" y="23" width="1440" height="804" />
+    <state width="1398" height="552" key="GridCell.Tab.0.center/0.23.1440.804@0.23.1440.804" timestamp="1605491059671" />
+    <state width="1398" height="552" key="GridCell.Tab.0.center/0.23.1440.806@0.23.1440.806" timestamp="1607116463708" />
+    <state width="1398" height="552" key="GridCell.Tab.0.center/0.23.1440.808@0.23.1440.808" timestamp="1607116421030" />
+    <state width="1398" height="552" key="GridCell.Tab.0.left" timestamp="1607116463708">
+      <screen x="0" y="23" width="1440" height="806" />
     </state>
-    <state width="1398" height="552" key="GridCell.Tab.0.right/0.23.1440.804@0.23.1440.804" timestamp="1605027097322" />
-    <state width="1398" height="613" key="GridCell.Tab.0.right/0.23.1440.806@0.23.1440.806" timestamp="1603647477377" />
+    <state width="1398" height="552" key="GridCell.Tab.0.left/0.23.1440.804@0.23.1440.804" timestamp="1605491059671" />
+    <state width="1398" height="552" key="GridCell.Tab.0.left/0.23.1440.806@0.23.1440.806" timestamp="1607116463708" />
+    <state width="1398" height="552" key="GridCell.Tab.0.left/0.23.1440.808@0.23.1440.808" timestamp="1607116421030" />
+    <state width="1398" height="552" key="GridCell.Tab.0.right" timestamp="1607116463708">
+      <screen x="0" y="23" width="1440" height="806" />
+    </state>
+    <state width="1398" height="552" key="GridCell.Tab.0.right/0.23.1440.804@0.23.1440.804" timestamp="1605491059671" />
+    <state width="1398" height="552" key="GridCell.Tab.0.right/0.23.1440.806@0.23.1440.806" timestamp="1607116463708" />
+    <state width="1398" height="552" key="GridCell.Tab.0.right/0.23.1440.808@0.23.1440.808" timestamp="1607116421031" />
     <state x="221" y="65" key="SettingsEditor" timestamp="1603572734473">
       <screen x="0" y="23" width="1440" height="806" />
     </state>
     <state x="221" y="65" key="SettingsEditor/0.23.1440.806@0.23.1440.806" timestamp="1603572734473" />
-    <state x="320" y="166" key="Vcs.Push.Dialog.v2" timestamp="1605473379537">
+    <state x="320" y="166" key="Vcs.Push.Dialog.v2" timestamp="1605474028508">
       <screen x="0" y="23" width="1440" height="804" />
     </state>
-    <state x="320" y="166" key="Vcs.Push.Dialog.v2/0.23.1440.804@0.23.1440.804" timestamp="1605473379537" />
+    <state x="320" y="166" key="Vcs.Push.Dialog.v2/0.23.1440.804@0.23.1440.804" timestamp="1605474028508" />
     <state x="320" y="166" key="Vcs.Push.Dialog.v2/0.23.1440.806@0.23.1440.806" timestamp="1603584437607" />
     <state x="497" y="211" key="chooseDestDirectoryDialog" timestamp="1602790928528">
       <screen x="0" y="23" width="1440" height="806" />

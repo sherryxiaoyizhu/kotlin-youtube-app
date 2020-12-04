@@ -51,8 +51,3 @@ KotlinYouTube is an Android mobile application that renders hit music videos by 
 - [Gson](https://guides.codepath.com/android/leveraging-the-gson-library) - provides a powerful framework for converting between JSON strings and Java objects
 - [Picasso](https://square.github.io/picasso/) - allows for hassle-free image loading in application
 - [CircleImageView](https://github.com/hdodenhof/CircleImageView) - a fast circular ImageView perfect for profile images
-
-### Source:
-
-- [CS 395T Android Programming](https://www.cs.utexas.edu/users/witchel/371M/schedule.html) by UT Austin
-- [YouTube Tutorial](https://www.youtube.com/playlist?list=PL0dzCUj1L5JGfHj1lwxOq67zAJV3e1S9S) by Lets Build That App Channel
