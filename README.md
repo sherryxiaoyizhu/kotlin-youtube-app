@@ -6,7 +6,7 @@ KotlinYouTube is an Android mobile application that renders hit music videos by 
 
 #### Home
 
-- Users to sign in with email and password to see the home page
+- Users to sign in with email and password to see the home page (Email: fake@example.com, Password: 123456)
 - Fetch videos from a YouTube video playlist, display thumbnail image, video title, channel profile image, channel name, and published time from the network through YouTube Data API
 - Swipe to refresh the video playlist
 - Users to enter search term and filter videos in the playlist, search terms will be highlighted in blue

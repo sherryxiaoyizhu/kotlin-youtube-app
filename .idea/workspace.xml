@@ -13,20 +13,16 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bb720c23-9b72-4185-b5be-83fdb33c61eb" name="Default Changelist" comment="Mask API Key">
+    <list default="true" id="bb720c23-9b72-4185-b5be-83fdb33c61eb" name="Default Changelist" comment="Final">
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_youtube_player.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_youtube_player.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[Pixel_3a_XL_API_30]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -548,12 +544,18 @@
       <option name="project" value="LOCAL" />
       <updated>1605474021862</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Final">
+      <created>1607118548255</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1607118548255</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Update Favorites" />
     <MESSAGE value="Add YouTubeApi" />
     <MESSAGE value="Update Repository" />
     <MESSAGE value="Update Repository &amp; Debugging" />
@@ -578,7 +580,8 @@
     <MESSAGE value="Update gitignore" />
     <MESSAGE value="Remove keys.properties" />
     <MESSAGE value="Mask API Key" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mask API Key" />
+    <MESSAGE value="Final" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final" />
   </component>
   <component name="WindowStateProjectService">
     <state x="458" y="187" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1603934276760">
@@ -611,15 +614,16 @@
       <screen x="0" y="23" width="1440" height="806" />
     </state>
     <state x="308" y="188" key="AndroidCreateResourceFileDialog/0.23.1440.806@0.23.1440.806" timestamp="1603039666115" />
-    <state x="27" y="23" key="CommitChangelistDialog2" timestamp="1607116346384">
-      <screen x="0" y="23" width="1440" height="806" />
+    <state x="27" y="23" key="CommitChangelistDialog2" timestamp="1607998474248">
+      <screen x="0" y="23" width="1440" height="801" />
     </state>
+    <state x="27" y="23" key="CommitChangelistDialog2/0.23.1440.801@0.23.1440.801" timestamp="1607998474248" />
     <state x="112" y="23" key="CommitChangelistDialog2/0.23.1440.804@0.23.1440.804" timestamp="1605474021724" />
-    <state x="27" y="23" key="CommitChangelistDialog2/0.23.1440.806@0.23.1440.806" timestamp="1607116346384" />
-    <state x="0" y="93" key="DiffContextDialog" timestamp="1607116331634">
+    <state x="27" y="23" key="CommitChangelistDialog2/0.23.1440.806@0.23.1440.806" timestamp="1607118548009" />
+    <state x="0" y="93" key="DiffContextDialog" timestamp="1607118461504">
       <screen x="0" y="23" width="1440" height="806" />
     </state>
-    <state x="0" y="93" key="DiffContextDialog/0.23.1440.806@0.23.1440.806" timestamp="1607116331634" />
+    <state x="0" y="93" key="DiffContextDialog/0.23.1440.806@0.23.1440.806" timestamp="1607118461504" />
     <state width="1398" height="552" key="GridCell.Tab.0.bottom" timestamp="1607116463709">
       <screen x="0" y="23" width="1440" height="806" />
     </state>
@@ -648,11 +652,11 @@
       <screen x="0" y="23" width="1440" height="806" />
     </state>
     <state x="221" y="65" key="SettingsEditor/0.23.1440.806@0.23.1440.806" timestamp="1603572734473" />
-    <state x="320" y="166" key="Vcs.Push.Dialog.v2" timestamp="1605474028508">
-      <screen x="0" y="23" width="1440" height="804" />
+    <state x="320" y="166" key="Vcs.Push.Dialog.v2" timestamp="1607118554273">
+      <screen x="0" y="23" width="1440" height="806" />
     </state>
     <state x="320" y="166" key="Vcs.Push.Dialog.v2/0.23.1440.804@0.23.1440.804" timestamp="1605474028508" />
-    <state x="320" y="166" key="Vcs.Push.Dialog.v2/0.23.1440.806@0.23.1440.806" timestamp="1603584437607" />
+    <state x="320" y="166" key="Vcs.Push.Dialog.v2/0.23.1440.806@0.23.1440.806" timestamp="1607118554273" />
     <state x="497" y="211" key="chooseDestDirectoryDialog" timestamp="1602790928528">
       <screen x="0" y="23" width="1440" height="806" />
     </state>
